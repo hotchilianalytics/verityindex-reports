@@ -1,0 +1,104 @@
+# Verity Index for Youtube Video: 1bFguCdJfLA
+## The BIGGEST Disbelief about IVERMECTIN and COVID
+
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/1bFguCdJfLA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</center>
+
+The BIGGEST Disbelief about IVERMECTIN and COVID
+
+Ivermectin is used to treat head lice and certain parasitic infections.
+But for COVID? 
+The WHO, CDC, FDA, and IDSA say it should not be used for COVID. 
+UNLESS it's in a clinical trial.
+
+But that didn’t stop this guy, who chose ivermectin over the vaccine. Captain Joe Manning, 57, A Georgia police officer who frequently posted anti-vax messages on Facebook, died of COVID. 
+Why would some people want a drug that is not FDA approved for COVID? 
+Because it has not been proven to be effective and has not been proven to be safe. 
+Why would someone choose that over something that has been proven safe and effective in preventing COVID?
+
+---------------------------------------------------------
+🩺 Ask Doctor Hansen:
+https://app.doctormikehansen.com/
+
+---------------------------------------------------------
+
+Dexamethasone video:
+https://www.youtube.com/watch?v=jrwSo9ZDZEg
+
+Well, we do kind of have that with dexamethasone. AKA decadron, which is a steroid that is very similar to prednisone. It’s the one drug with the most solid evidence for reducing the severity of COVID illness, including reducing mortality. And it's cheap too. But it's not a miracle drug.
+
+So how do we know if ivermectin 
+1) works 
+2) if so, what dose is required for it to work 
+3) is that dose safe for ingestion??? 
+The ivermectin hype train left the station back in April of 2020.
+It all started with this study that looked at the virus in a test tube when scientists suffocated it with massive doses of ivermectin. 
+
+And surprise, surprise, guess what the results showed? 
+There was a major drop in viral replication. And that’s great, right? It’s a starting point. It's saying, hey, we might have something here. But there's a problem. The inhibitory concentration of the drug, around 2.5 micromolar, is not achievable in real live humans. In fact, standard ivermectin dosing achieves blood concentrations of about 25 nanomolar, 100-fold less than needed in vitro. Lung concentrations are slightly higher than blood concentrations but still 50-fold less than what is needed to inhibit the virus in cells in culture.
+
+But ok, maybe it works not necessarily by inhibiting viral replication; maybe it can help suppress inflammation from COVID.So you start doing some observational studies. Observational studies are not great, but they serve a purpose because you want to see if there is any correlation between ivermectin and its potential to help against COVID. If you see a correlation, that warrants spending more time and money to do a bigger, higher-quality study to prove or disprove that the drug is safe and effective. And the best studies for that are double-blinded, randomized placebo control trials. The more people in the study, the more you can rely on the results. That is how you prove cause and effect. 
+
+So you take 30,000 people, give half of them a placebo, and the other half the medicine. Then you look at your results, and that is how you get your answer if it's safe and effective. That’s the process that was done with the vaccines. The same can not be said for Ivermectin. 
+
+Generally speaking, when given doses used to treat parasitic infections in humans, ivermectin is very safe. So we’re talking about 200 mcg per kilogram, so for a 75 kg person, around 165 pounds, you’re looking at a 15 mg dose. Before the pandemic, prescriptions for ivermectin in this country were 3,600 per week. Now they are more than 88,000 per week. 
+
+But even more concerning is people getting the drug from livestock supply centers, which can come in a highly concentrated paste or liquid forms? 
+Sometimes 10 to 15 times the amount that we give people.
+
+Well, guess what? 
+Mississippi’s health department said that 70% of recent calls to the state poison control center had come from people who ingested ivermectin from livestock supply stores. Same thing going on in Alabama. 
+What are the common symptoms? 
+Nausea, vomiting, diarrhea. But there’s also nerve damage, seizures, and sometimes death.
+
+Doctor Mike Hansen, MD
+Internal Medicine | Pulmonary Disease | Critical Care Medicine
+Website: https://doctormikehansen.com/
+Doctor Hansen's Courses: https://doctormikehansen.com/courses/
+Contact and Social Media Links: https://doctormikehansen.com/contact/
+
+#covid #ivermectin #vaccine
+---
+## VerityIndex Analysis
+
+| MediaName                                                                                                 | MetricType | MetricScore | Reasoning                                                                                                                                                                                                                                                                                                                                                                                                 |
+| :--------------------------------------------------------------------------------------------------------- | :--------- | :---------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <center>1bFguCdJfLA The BIGGEST Disbelief about IVERMECTIN and COVID</center> | Currency   | 95%        | The video was uploaded in 2021, making it relatively recent for discussion of a topic that was trending heavily at that time. The video discusses the issue of ivermectin use for COVID-19 treatment, a topic that was highly relevant in 2021.[0:01] [0:27][2:16]                             |
+| <center>1bFguCdJfLA The BIGGEST Disbelief about IVERMECTIN and COVID</center> | Relevance  | 90%         | The video is very relevant for discussion about the usage of Ivermectin for Covid. It clearly lays out the pros and cons, as well as the source of its support and the opposition. Also, the video discusses the safety of the drug at multiple time points. [0:14] [0:57][2:55]          |
+| <center>1bFguCdJfLA The BIGGEST Disbelief about IVERMECTIN and COVID</center> | Authority  | 90%         | Dr. Mike Hansen MD, the video's presenter, is a board-certified internal medicine, pulmonary disease, and critical care specialist. He cites multiple sources, and discusses why the mainstream health community has stated that the drug is unsafe and ineffective for COVID treatment [0:05] [0:16] [4:56]          |
+| <center>1bFguCdJfLA The BIGGEST Disbelief about IVERMECTIN and COVID</center> | Accuracy   | 85%        |  The video accurately reflects the scientific consensus at the time of release, about ivermectin and COVID. The video points out the in-vitro research as initial support for the drug and the challenges in applying those results in-vivo [0:02] [2:23] [2:45]. Dr.Hansen accurately describes multiple studies with significant results [3:58] and is neutral about its future use.        |
+| <center>1bFguCdJfLA The BIGGEST Disbelief about IVERMECTIN and COVID</center> | Purpose    | 90%         | The purpose of the video is to inform the viewer about the science behind the Ivermectin drug for Covid usage. Dr Hansen presents the current facts and shows the pro and con sides of the argument, and explains why the FDA and WHO dont recommend using the drug [0:01] [1:01][4:46]  |
+
+<br>
+
+## Summary of Truthfulness:
+The video is a very truthful representation of the scientific knowledge at the time it was created on the subject of Ivermectin for use against COVID. 
+
+| Truth Meter | Percentage |
+| ----------| ----------- |
+| Reasonable  | 80%         |
+
+<br>
+
+## Validation and Verification
+| Source                                                                                 | Timestamp | Reasoning                                                                                                                                                                                                                         |
+| :-------------------------------------------------------------------------------------- | :------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [INSIDER Article on Joe Manning](https://www.insider.com/police-captain-who-refused-vaccine-took-ivermectin-covid-dies-2021-8)             | 0:27     | This source verifies that a police captain who had been posting anti-vax messages had died after choosing Ivermectin over a vaccine. This example is cited in the video as an example of why some people believe in the drug as a treatment for Covid.    |
+| [Antiviral Research study on Ivermectin](https://www.sciencedirect.com/science/article/pii/S016635422030123X)                     | 2:23     | This study is referenced in the video as a source of the in-vitro testing done on Ivermectin. The study shows that the drug showed a major drop in viral replication in a test tube. The video correctly notes the results and calls it a starting point.     |
+| [Pharmokinetic study on Ivermectin](https://www.tandfonline.com/doi/full/10.1080/13102818.2020.1775118) | 2:45     | The video references this study when explaining why the results seen in-vitro do not translate into real live humans due to insufficient levels of drug available with standard dosing.        |
+|[JAMA Randomized Clinical Trial of Ivermectin](https://jamanetwork.com/journals/jama/fullarticle/2777389)|2:45|The presenter discusses the fact that the dose levels needed to stop replication of the virus are difficult to achieve in live humans, even at very high dose levels. This source provides support for that conclusion.
+|[The Cochrane Library review of Ivermectin](https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD015017.pub2/full)|4:46|The presenter uses the conclusions of this meta-analysis to support the argument that Ivermectin is not an effective tool against COVID at this time.  This is presented accurately.  The meta-analysis states "Overall, the reliable evidence available does not support the use of ivermectin for treatment or prevention of COVID-19 outside of well-designed randomized trials"                                                              |
+
+<br>
+
+Recommendations:
+- Verify all sources for your own verity.  
+- Use fact checking resources such as snopes and politifact and other fact-checking websites. 
+- If scientific sources are presented, make sure you are also looking at a broad range of scientific views, and not just a select few.
+- Be skeptical of claims, and verify sources.
+- If you think that someone is trying to deceive you, verify what they are saying from additional and multiple sources.
+- Look at the authoritativeness of the sources being cited.
+- Beware of bias.
+
+```
