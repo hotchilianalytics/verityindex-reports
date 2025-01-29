@@ -1,0 +1,52 @@
+```markdown
+# Verity Index for Youtube Video: wQY9yVriU10
+## Why are people taking Ivermectin to treat COVID-19 even though the FDA warns against it?
+
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/wQY9yVriU10" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</center>
+
+Why are people taking Ivermectin to treat COVID-19 even though the FDA warns against it?
+There’s no clear evidence from any major study ivermectin helps treat COVID-19 and the FDA has warned against taking it.
+
+“Not for human consumption. It says it on the bottle,” Meredith said. “It’s for deworming cattle, deworming horses.”
+
+Many people have started taking it to treat or prevent COVID-19, despite an FDA warning titled “Why You Should Not Use Ivermectin to Treat or Prevent COVID-19". 
+
+There is a human version of the product, but it’s not approved to treat COVID-19, because there’s no clear evidence from any major study that it helps. The poison center will now ask people where they bought it and which formula.
+
+STORY: https://www.wfaa.com/article/news/health/coronavirus/texas-sees-spike-in-poison-calls-for-horse-and-cow-dewormer-ivermectin-despite-fda-warning/287-57a97ba4-ea7a-42b7-adda-e8618b35d9fd
+
+---
+## VerityIndex Analysis
+
+| MediaName  | MetricType  | MetricScore | Reasoning |
+| :--------------------------------------------------------------------------------: | :---------- | :----------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| wQY9yVriU10 Why are people taking Ivermectin to treat COVID-19 even though the FDA warns against it? | Currency | 90% | The video was uploaded on Aug 25, 2021, making it fairly recent in relation to the spike of Ivermectin usage during the pandemic. The video presents current information from 2021 regarding Ivermectin. |
+| wQY9yVriU10 Why are people taking Ivermectin to treat COVID-19 even though the FDA warns against it? | Relevance | 95% | The video is relevant because it specifically addresses the topic of using Ivermectin for COVID-19, which was a significant issue in the pandemic time frame, and discusses the warnings and advice given by the FDA on that topic. The video is relevant to those interested in health and COVID-19 treatments and mis-treatments. |
+| wQY9yVriU10 Why are people taking Ivermectin to treat COVID-19 even though the FDA warns against it? | Authority | 85% | The video uses sources such as FDA publications (shown at 0:24), and interviews with a North Texas Poison Center official and a feed store owner, [0:06] who speaks with knowledge on the products. It is produced by a local news station, which has journalistic standards and editorial review practices.  |
+| wQY9yVriU10 Why are people taking Ivermectin to treat COVID-19 even though the FDA warns against it? | Accuracy  | 80% | The video is mostly accurate in its statements. The claims are that Ivermectin is a dewormer, not effective against Covid-19, and an increasing number of poison calls are being reported, which are all accurate based on available data. [0:06-0:10] The video accurately shows and cites FDA information warning against its use [0:26-0:35] and also gives anecdotal accounts of the shortage of the product [0:10-0:18]. The claims about Poison Control calls and the increase in them are accurate, the North Texas Poison Control Center representative is credible [0:41-0:59] and shows a relevant chart comparing 2020 and 2021. |
+| wQY9yVriU10 Why are people taking Ivermectin to treat COVID-19 even though the FDA warns against it? | Purpose    | 90%  | The video's purpose is to inform the public about the dangers of using animal Ivermectin to treat COVID-19 and highlight the lack of scientific evidence supporting this practice. The video accurately uses information sources to back up its claims. It does this by presenting direct interviews with people, showing the products [0:47-0:58], and citing the FDA [0:24-0:35] warning. |
+
+### Summary of Truthfulness
+The video appears to be a fairly truthful and accurate report on the use of Ivermectin as a Covid treatment, and clearly and accurately reports on the problems and mis-information associated with such use, and the dangers associated with taking Ivermectin in this incorrect way.
+
+| Truth Meter    | Percentage |
+| :------------- | :--------: |
+| Reasonable   |  95% |
+
+### Validation and Verification
+
+| Source | Timestamp | Reasoning |
+|----------|---------|--------------------------------------------------------------|
+| FDA warning against Ivermectin | 0:24 | This is from the official US government FDA site, and the official position is clearly displayed.|
+| Farm store owner,  Matt Meredith | 0:03, 0:21 | Matt provides expert and first hand testimony on the shortage of ivermectin, from his feed store and the fact that the use is for livestock, not humans. |
+| Liz Petty from North Texas Poison Center | 0:41 | Liz Petty gives a first hand account of the increase in poisonings due to Ivermectin, and states the dangers of its use, and provides an exact number comparison of poison cases over two years.|
+|  | |   |
+
+### Further Recommendations
+- Look for peer-reviewed studies on Ivermectin use for Covid-19 from trusted medical journals (e.g., JAMA, NEJM, The Lancet).
+- Check the FDA website for the latest updates on the safety and efficacy of Ivermectin.
+- Consult with medical experts for professional advice.
+
+```

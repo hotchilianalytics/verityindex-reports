@@ -1,0 +1,99 @@
+# Verity Index for Youtube Video: SFhlWe3BrY0
+## Nurse practitioner talks about using Ivermectin to treat COVID-19 patients
+
+<div align="center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/SFhlWe3BrY0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+
+FOX 26 Anchor Rashi Vats spoke with a nurse practitioner, who is prescribing Ivermectin to treat patients with COVID-19.
+
+#coronavirus #vaccines #ivermectin
+
+Subscribe to FOX 26 Houston: https://www.youtube.com/myfoxhouston26?sub_confirmation=1
+
+Watch FOX 26 Houston Live: https://www.fox26houston.com/live
+
+Houston area news, weather, traffic, sports and breaking news from FOX 26 Houston. Watch news and local programming daily from KRIV.
+
+Watch more FOX 26 Houston on YouTube:
+What's Your Point?: https://www.youtube.com/playlist?list=PLzU9hsam67vZXZPhBKz8g7NmLspNSCJMW
+Isiah Factor Uncensored: https://www.youtube.com/playlist?list=PLzU9hsam67vZy1iMI2wiIa4988tnEqoS7
+Positively Houston: https://www.youtube.com/playlist?list=PLzU9hsam67vYgxB8_wTc4NdcTBGfe60N_
+
+Download the FOX 26 Houston News app: https://fox26houston.onelink.me/xslh?pid=social&c=youtube&af_web_dp=https%3A%2F%2Fwww.fox26houston.com%2Fapps
+
+Download the FOX 26 Houston Weather app: https://www.fox26houston.com/apps
+
+Follow FOX 26 Houston on Facebook: https://www.facebook.com/fox26houston
+
+Follow FOX 26 Houston on Twitter: https://www.twitter.com/fox26houston
+
+Follow FOX 26 Houston on Instagram: https://www.instagram.com/fox26houston
+
+Subscribe to the FOX 26 Houston newsletter: https://www.fox26houston.com/newsletters
+
+---
+# VerityIndex Analysis
+
+| MediaName                                                                             | MetricType | MetricScore | Reasoning                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| :------------------------------------------------------------------------------------ | :--------- | :---------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| SFhlWe3BrY0 Nurse practitioner talks about using Ivermectin to treat COVID-19 patients | Currency   | 90%         | The video was uploaded on Oct 1, 2021, which is recent given the context of the COVID-19 pandemic. [0:00:00] The news segment was relevant to the time when Ivermectin was under discussion as a potential treatment.   The sources given are current for the time. [0:00:21] and [0:01:54]                                                                                                                                                                              |
+| SFhlWe3BrY0 Nurse practitioner talks about using Ivermectin to treat COVID-19 patients | Relevance  | 85%         | The video is highly relevant to those seeking information about COVID-19 treatments at the time of the original media production. [0:00:01] The debate surrounding Ivermectin as a treatment for COVID-19 was a relevant topic. The interview and discussion about a Nurse Practitioner's practices is also relevant. [0:00:10]                                                                                                                                                              |
+| SFhlWe3BrY0 Nurse practitioner talks about using Ivermectin to treat COVID-19 patients | Authority  | 60%         | The video features a nurse practitioner who is using Ivermectin in her practice. [0:01:17] However, the video also includes the perspective of the FDA and AMA [0:01:54] , who oppose Ivermectin's usage for COVID-19 outside of clinical trials.  While the Nurse Practitioner has credentials the AMA and FDA have higher authority when it comes to medical guidance and national standards.                                                        |
+| SFhlWe3BrY0 Nurse practitioner talks about using Ivermectin to treat COVID-19 patients | Accuracy   | 65%         | The video accurately represents the nurse practitioner's views on Ivermectin [0:01:30] and includes the FDA and AMA's opposing viewpoints. [0:01:54]. However, the video does not present conclusive evidence of Ivermectin's efficacy. It states that there are ongoing trials [0:00:32], and reports the concerns of John Farley, MD, MPH of the FDA. [0:02:03].  This accuracy of the opposing views, and open ended question mark lowers the accuracy rating.|
+| SFhlWe3BrY0 Nurse practitioner talks about using Ivermectin to treat COVID-19 patients | Purpose    | 70%         | The purpose appears to be to provide information on Ivermectin use by a nurse practitioner while also presenting a balanced perspective by including dissenting views from the FDA and AMA.  [0:00:39] It seems to be an attempt at neutral reporting on a controversial topic, though the use of a local practitioner may add a bias. [0:00:12] The inclusion of the FDA adds to the balance. [0:01:54]  |
+
+<br>
+
+**Summary of Truthfulness:**
+
+This video presents a balanced view, although slightly biased in favor of Ivermectin by focusing on a practitioner who uses the drug off-label. It presents the controversy surrounding Ivermectin use for COVID-19, showcasing both the perspectives of its proponents and opponents,  with the addition of the FDA and AMA viewpoint. It clearly states that the FDA has not approved Ivermectin for this purpose. The video does not make strong claims about efficacy.  There is some bias in the video in favor of the NP, but this is balanced by clear reports of the FDA and AMA concerns.
+
+| Truth Meter | Category   |
+| ----------- | ----------- |
+| 60%         | Reasonable  |
+
+<br>
+
+**Dashboard**
+
+**CRAAP Analysis Chart**
+
+| MetricType | MetricScore |
+| :----------| :-----------|
+| Currency | 90% |
+| Relevance | 85% |
+| Authority | 60% |
+| Accuracy | 65% |
+| Purpose  | 70% |
+
+**Truthfulness Meter Chart**
+| Category   | Percentage  |
+| ----------- | ----------- |
+| Scam        | 0%   |
+| Deceptive   | 5%   |
+| Neutral     | 35%  |
+| Reasonable  | 60%  |
+| Truthful    | 0%   |
+
+<br>
+
+**Validation and Verification**
+
+| Source                               | Timestamp | Reasoning                                                                                                                                                                    |
+| :------------------------------------ | :------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| FOX 26 Houston                       | 0:00     | This is the media channel that originally produced the content and the source of the story                                                                                |
+| Nurse Practitioner Sharell Marlitz  | 0:01:30  | The nurse practitioner is the primary source for the claims about Ivermectin use, and its effects. She reports her findings to the media.                                                                   |
+| American Medical Association (AMA)     | 0:01:54  | The AMA's stance against Ivermectin's use for COVID-19 is presented in the video, providing a contrasting viewpoint from a recognized medical authority, which serves to moderate the Nurse Practitioner's claims. |
+| John Farley, MD, MPH with the FDA  | 0:02:03  | A member of the FDA, Dr. John Farley presents their view in opposition to the drug, thus confirming the position that the FDA has a concern about it's general usage. |
+
+**Additional Verification Tools:**
+
+1.  **Snopes:** Fact-checking website for claims on Ivermectin.
+2.  **FDA Website:** Official information on Ivermectin's approval status.
+3.  **WHO website:**  World Health Organization official website, contains information on Ivermectin and Covid 19
+4.  **PubMed:** Search for research studies related to Ivermectin and COVID-19.
+5.  **Cochrane Library:** Review the systematic reviews about Ivermectin's use in COVID-19, contains meta-analysis reports
+
+The video presents a balanced view with the inclusion of dissenting viewpoints. However, due to the lack of FDA clinical studies, and general approval, the overall verity score is categorized as **Reasonable**.
+```
