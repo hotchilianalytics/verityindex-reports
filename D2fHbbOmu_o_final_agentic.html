@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        :root {
+            --primary-color: #2196F3;
+            --primary-dark: #1976D2;
+            --secondary-color: #FF9800;
+            --background-color: #f5f5f5;
+            --text-color: #333;
+            --border-color: #ddd;
+            --box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            
+            /* Assessment colors */
+            --false-bg: #ffebee;
+            --false-color: #c62828;
+            --unable-bg: #fff3e0;
+            --unable-color: #ef6c00;
+            --true-bg: #e8f5e9;
+            --true-color: #2e7d32;
+            --mixed-bg: #f3e5f5;
+            --mixed-color: #7b1fa2;
+            
+            /* Add source credibility colors */
+            --high-credibility: #43a047;
+            --medium-credibility: #fb8c00;
+            --low-credibility: #e53935;
+            --single-source: #7b1fa2;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: white;
+            box-shadow: var(--box-shadow);
+            border-radius: 8px;
+            color: var(--text-color);
+        }
+
+        /* Ensure text color is properly set for all elements */
+        .container * {
+            color: var(--text-color);
+        }
+
+        .container h1, .container h2, .container h3, .container h4, .container h5, .container h6 {
+            color: var(--primary-dark);
+        }
+
+        /* Rest of your existing CSS */
+        
+    :root {
+        --high-credibility: #4CAF50;
+        --medium-credibility: #FFC107;
+        --low-credibility: #F44336;
+        --mixed-credibility: #9C27B0;
+        --primary-color: #2196F3;
+        --secondary-color: #607D8B;
+        --background-color: #FFFFFF;
+        --text-color: #333333;
+        --border-color: #DDDDDD;
+        --highly-likely-true: #4CAF50;
+        --likely-true: #8BC34A;
+        --mixed: #FFC107;
+        --likely-false: #FF9800;
+        --highly-likely-false: #F44336;
+        --unable-determine: #9E9E9E;
+    }
+    
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--text-color);
+        background-color: var(--background-color);
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        color: var(--primary-color);
+        margin-top: 1.5em;
+        margin-bottom: 0.5em;
+    }
+    
+    h1 {
+        font-size: 2.5em;
+        border-bottom: 2px solid var(--primary-color);
+        padding-bottom: 10px;
+    }
+    
+    h2 {
+        font-size: 2em;
+    }
+    
+    h3 {
+        font-size: 1.5em;
+    }
+    
+    a {
+        color: var(--primary-color);
+        text-decoration: underline;
+    }
+    
+    a:hover {
+        color: #0D47A1;
+    }
+    
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin: 20px 0;
+    }
+    
+    th, td {
+        text-align: left;
+        padding: 12px;
+        border: 1px solid var(--border-color);
+    }
+    
+    th {
+        background-color: var(--primary-color);
+        color: white;
+    }
+    
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+    
+    .summary-box {
+        background-color: #E3F2FD;
+        border-left: 5px solid var(--primary-color);
+        padding: 15px;
+        margin: 20px 0;
+        border-radius: 4px;
+    }
+    
+    .summary-box h3 {
+        margin-top: 0;
+        color: var(--primary-color);
+    }
+    
+    .summary-box ul {
+        margin: 10px 0;
+        padding-left: 20px;
+    }
+    
+    .assessment {
+        font-weight: bold;
+        padding: 3px 6px;
+        border-radius: 3px;
+    }
+    
+    .highly-likely-to-be-true {
+        background-color: var(--highly-likely-true);
+        color: white;
+    }
+    
+    .likely-to-be-true {
+        background-color: var(--likely-true);
+        color: white;
+    }
+    
+    .mixed-truthfulness {
+        background-color: var(--mixed);
+        color: black;
+    }
+    
+    .likely-to-be-false {
+        background-color: var(--likely-false);
+        color: white;
+    }
+    
+    .highly-likely-to-be-false {
+        background-color: var(--highly-likely-false);
+        color: white;
+    }
+    
+    .unable-to-determine {
+        background-color: var(--unable-determine);
+        color: white;
+    }
+    
+    .credibility {
+        font-weight: bold;
+        padding: 3px 6px;
+        border-radius: 3px;
+    }
+    
+    .high {
+        background-color: var(--high-credibility);
+        color: white;
+    }
+    
+    .medium {
+        background-color: var(--medium-credibility);
+        color: black;
+    }
+    
+    .low {
+        background-color: var(--low-credibility);
+        color: white;
+    }
+    
+    .mixed {
+        background-color: var(--mixed-credibility);
+        color: white;
+    }
+    
+    .evidence-section {
+        background-color: #F5F5F5;
+        padding: 15px;
+        margin: 20px 0;
+        border-radius: 4px;
+        border-left: 5px solid var(--secondary-color);
+    }
+    
+    .source-link {
+        display: inline-block;
+        margin-top: 5px;
+        font-style: italic;
+    }
+    
+    blockquote {
+        background-color: #F5F5F5;
+        border-left: 5px solid var(--secondary-color);
+        padding: 10px 20px;
+        margin: 15px 0;
+        font-style: italic;
+    }
+    
+    code {
+        background-color: #F5F5F5;
+        padding: 2px 5px;
+        border-radius: 3px;
+        font-family: 'Courier New', Courier, monospace;
+    }
+    
+    pre {
+        background-color: #F5F5F5;
+        padding: 15px;
+        border-radius: 4px;
+        overflow-x: auto;
+    }
+    
+    img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 20px 0;
+        border-radius: 4px;
+    }
+    
+    .video-container {
+        margin: 20px 0;
+        text-align: center;
+        background-color: #f8f9fa;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .video-container h2 {
+        margin-top: 0;
+        color: #333;
+        font-size: 1.8em;
+        margin-bottom: 15px;
+    }
+    
+    .video-container img {
+        margin: 0 auto;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        transition: transform 0.3s ease;
+    }
+    
+    .video-container img:hover {
+        transform: scale(1.02);
+    }
+    
+    .video-container a {
+        display: inline-block;
+        text-decoration: none;
+    }
+    
+    .video-embed {
+        margin: 20px 0;
+        text-align: center;
+    }
+    
+    .video-embed img {
+        margin: 0 auto;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        transition: transform 0.3s ease;
+    }
+    
+    .video-embed img:hover {
+        transform: scale(1.02);
+    }
+    
+    .video-embed a {
+        display: inline-block;
+        text-decoration: none;
+    }
+    
+    @media (max-width: 768px) {
+        body {
+            padding: 10px;
+        }
+        
+        h1 {
+            font-size: 2em;
+        }
+        
+        h2 {
+            font-size: 1.7em;
+        }
+        
+        h3 {
+            font-size: 1.3em;
+        }
+        
+        .video-container h2 {
+            font-size: 1.5em;
+        }
+    }
+    
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="summary-box">
+        <h3>Quick Summary</h3>
+        <ul>
+            <li><strong>Verdict:</strong> <span class="assessment assessmentlevel.unabledetermine">AssessmentLevel.UNABLEDETERMINE</span></li>
+            <li><strong>Analysis Date:</strong> 2025-02-27</li>
+        </ul>
+    </div>
+        <div class="video-container">
+    <h2>Verity Engine Report</h2>
+    <a href="https://youtu.be/D2fHbbOmu_o" target="_blank">
+        <img src="https://img.youtube.com/vi/D2fHbbOmu_o/0.jpg" alt="Verity Engine Report" width="560">
+    </a>
+</div>
+        <h2>1. Overall Truthfulness Assessment: AssessmentLevel.UNABLEDETERMINE</h2>
+<p>Unable to generate a complete assessment due to technical issues</p>
+<h2>2. Summary of Key Findings</h2>
+<table>
+<thead>
+<tr>
+<th>Finding</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Error</strong></td>
+<td>Failed to generate structured report</td>
+</tr>
+<tr>
+<td><strong>Robert Kiyosaki's Rich Dad sto...</strong></td>
+<td>Conclusion: UNCERTAIN</td>
+</tr>
+<tr>
+<td><strong>Rich Dad seminars are a scam, ...</strong></td>
+<td>Conclusion: TRUE</td>
+</tr>
+<tr>
+<td><strong>Robert Kiyosaki's success is n...</strong></td>
+<td>Conclusion: UNCERTAIN</td>
+</tr>
+<tr>
+<td><strong>Robert Kiyosaki's 'Poor Dad' w...</strong></td>
+<td>Conclusion: TRUE</td>
+</tr>
+<tr>
+<td><strong>Robert Kiyosaki's business pra...</strong></td>
+<td>Conclusion: TRUE</td>
+</tr>
+<tr>
+<td><strong>Are there YouTube videos debun...</strong></td>
+<td>Conclusion: No clear evidence of debunking videos was found, but this doesn't confirm or deny their existence.</td>
+</tr>
+</tbody>
+</table>
+<h2>3. Claims Breakdown with Verification Results</h2>
+<table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Verification Result</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Robert Kiyosaki's business practices are questionable, involving bankruptcy and lawsuits.</td>
+<td>Unknown</td>
+<td>Verification incomplete due to report generation error</td>
+</tr>
+</tbody>
+</table>
+<h2>4. Evidence Summary</h2>
+<h3>Primary Sources</h3>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Type</th>
+<th>Details</th>
+</tr>
+</thead>
+</table>
+<h3>Secondary Sources</h3>
+<ul>
+<li>Error in report generation</li>
+</ul>
+<h2>5. Updated CRAAP Analysis Incorporating New Evidence</h2>
+<table>
+<thead>
+<tr>
+<th>Criteria</th>
+<th>Assessment</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Currency</strong></td>
+<td>CredibilityLevel.MEDIUM</td>
+<td>Assessment incomplete</td>
+</tr>
+<tr>
+<td><strong>Relevance</strong></td>
+<td>CredibilityLevel.MEDIUM</td>
+<td>Assessment incomplete</td>
+</tr>
+<tr>
+<td><strong>Authority</strong></td>
+<td>CredibilityLevel.MEDIUM</td>
+<td>Assessment incomplete</td>
+</tr>
+<tr>
+<td><strong>Accuracy</strong></td>
+<td>CredibilityLevel.MEDIUM</td>
+<td>Assessment incomplete</td>
+</tr>
+<tr>
+<td><strong>Purpose</strong></td>
+<td>CredibilityLevel.MEDIUM</td>
+<td>Assessment incomplete</td>
+</tr>
+</tbody>
+</table>
+<h2>6. Recommendations Based on Findings</h2>
+<ol>
+<li>Try regenerating the report</li>
+</ol>
+<h2>7. Evidence Details with Source Credibility Assessment</h2>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Credibility Assessment</th>
+<th>Justification</th>
+</tr>
+</thead>
+</table>
+
+    </div>
+</body>
+</html>

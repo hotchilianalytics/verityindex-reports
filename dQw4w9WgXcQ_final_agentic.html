@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        :root {
+            --primary-color: #2196F3;
+            --primary-dark: #1976D2;
+            --secondary-color: #FF9800;
+            --background-color: #f5f5f5;
+            --text-color: #333;
+            --border-color: #ddd;
+            --box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            
+            /* Assessment colors */
+            --false-bg: #ffebee;
+            --false-color: #c62828;
+            --unable-bg: #fff3e0;
+            --unable-color: #ef6c00;
+            --true-bg: #e8f5e9;
+            --true-color: #2e7d32;
+            --mixed-bg: #f3e5f5;
+            --mixed-color: #7b1fa2;
+            
+            /* Add source credibility colors */
+            --high-credibility: #43a047;
+            --medium-credibility: #fb8c00;
+            --low-credibility: #e53935;
+            --single-source: #7b1fa2;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: white;
+            box-shadow: var(--box-shadow);
+            border-radius: 8px;
+            color: var(--text-color);
+        }
+
+        /* Ensure text color is properly set for all elements */
+        .container * {
+            color: var(--text-color);
+        }
+
+        .container h1, .container h2, .container h3, .container h4, .container h5, .container h6 {
+            color: var(--primary-dark);
+        }
+
+        /* Rest of your existing CSS */
+        
+    :root {
+        --high-credibility: #4CAF50;
+        --medium-credibility: #FFC107;
+        --low-credibility: #F44336;
+        --mixed-credibility: #9C27B0;
+        --primary-color: #2196F3;
+        --secondary-color: #607D8B;
+        --background-color: #FFFFFF;
+        --text-color: #333333;
+        --border-color: #DDDDDD;
+        --highly-likely-true: #4CAF50;
+        --likely-true: #8BC34A;
+        --mixed: #FFC107;
+        --likely-false: #FF9800;
+        --highly-likely-false: #F44336;
+        --unable-determine: #9E9E9E;
+    }
+    
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--text-color);
+        background-color: var(--background-color);
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        color: var(--primary-color);
+        margin-top: 1.5em;
+        margin-bottom: 0.5em;
+    }
+    
+    h1 {
+        font-size: 2.5em;
+        border-bottom: 2px solid var(--primary-color);
+        padding-bottom: 10px;
+    }
+    
+    h2 {
+        font-size: 2em;
+    }
+    
+    h3 {
+        font-size: 1.5em;
+    }
+    
+    a {
+        color: var(--primary-color);
+        text-decoration: underline;
+    }
+    
+    a:hover {
+        color: #0D47A1;
+    }
+    
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin: 20px 0;
+    }
+    
+    th, td {
+        text-align: left;
+        padding: 12px;
+        border: 1px solid var(--border-color);
+    }
+    
+    th {
+        background-color: var(--primary-color);
+        color: white;
+    }
+    
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+    
+    .summary-box {
+        background-color: #E3F2FD;
+        border-left: 5px solid var(--primary-color);
+        padding: 15px;
+        margin: 20px 0;
+        border-radius: 4px;
+    }
+    
+    .summary-box h3 {
+        margin-top: 0;
+        color: var(--primary-color);
+    }
+    
+    .summary-box ul {
+        margin: 10px 0;
+        padding-left: 20px;
+    }
+    
+    .assessment {
+        font-weight: bold;
+        padding: 3px 6px;
+        border-radius: 3px;
+    }
+    
+    .highly-likely-to-be-true {
+        background-color: var(--highly-likely-true);
+        color: white;
+    }
+    
+    .likely-to-be-true {
+        background-color: var(--likely-true);
+        color: white;
+    }
+    
+    .mixed-truthfulness {
+        background-color: var(--mixed);
+        color: black;
+    }
+    
+    .likely-to-be-false {
+        background-color: var(--likely-false);
+        color: white;
+    }
+    
+    .highly-likely-to-be-false {
+        background-color: var(--highly-likely-false);
+        color: white;
+    }
+    
+    .unable-to-determine {
+        background-color: var(--unable-determine);
+        color: white;
+    }
+    
+    .credibility {
+        font-weight: bold;
+        padding: 3px 6px;
+        border-radius: 3px;
+    }
+    
+    .high {
+        background-color: var(--high-credibility);
+        color: white;
+    }
+    
+    .medium {
+        background-color: var(--medium-credibility);
+        color: black;
+    }
+    
+    .low {
+        background-color: var(--low-credibility);
+        color: white;
+    }
+    
+    .mixed {
+        background-color: var(--mixed-credibility);
+        color: white;
+    }
+    
+    .evidence-section {
+        background-color: #F5F5F5;
+        padding: 15px;
+        margin: 20px 0;
+        border-radius: 4px;
+        border-left: 5px solid var(--secondary-color);
+    }
+    
+    .source-link {
+        display: inline-block;
+        margin-top: 5px;
+        font-style: italic;
+    }
+    
+    blockquote {
+        background-color: #F5F5F5;
+        border-left: 5px solid var(--secondary-color);
+        padding: 10px 20px;
+        margin: 15px 0;
+        font-style: italic;
+    }
+    
+    code {
+        background-color: #F5F5F5;
+        padding: 2px 5px;
+        border-radius: 3px;
+        font-family: 'Courier New', Courier, monospace;
+    }
+    
+    pre {
+        background-color: #F5F5F5;
+        padding: 15px;
+        border-radius: 4px;
+        overflow-x: auto;
+    }
+    
+    img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 20px 0;
+        border-radius: 4px;
+    }
+    
+    .video-container {
+        margin: 20px 0;
+        text-align: center;
+        background-color: #f8f9fa;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .video-container h2 {
+        margin-top: 0;
+        color: #333;
+        font-size: 1.8em;
+        margin-bottom: 15px;
+    }
+    
+    .video-container img {
+        margin: 0 auto;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        transition: transform 0.3s ease;
+    }
+    
+    .video-container img:hover {
+        transform: scale(1.02);
+    }
+    
+    .video-container a {
+        display: inline-block;
+        text-decoration: none;
+    }
+    
+    .video-embed {
+        margin: 20px 0;
+        text-align: center;
+    }
+    
+    .video-embed img {
+        margin: 0 auto;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        transition: transform 0.3s ease;
+    }
+    
+    .video-embed img:hover {
+        transform: scale(1.02);
+    }
+    
+    .video-embed a {
+        display: inline-block;
+        text-decoration: none;
+    }
+    
+    @media (max-width: 768px) {
+        body {
+            padding: 10px;
+        }
+        
+        h1 {
+            font-size: 2em;
+        }
+        
+        h2 {
+            font-size: 1.7em;
+        }
+        
+        h3 {
+            font-size: 1.3em;
+        }
+        
+        .video-container h2 {
+            font-size: 1.5em;
+        }
+    }
+    
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="summary-box">
+        <h3>Quick Summary</h3>
+        <ul>
+            <li><strong>Verdict:</strong> <span class="assessment assessmentlevel.highlylikelytrue">AssessmentLevel.HIGHLYLIKELYTRUE</span></li>
+            <li><strong>Analysis Date:</strong> 2025-02-27</li>
+        </ul>
+    </div>
+        <div class="video-container">
+    <h2>Rick Astley - Never Gonna Give You Up (Official Music Video)</h2>
+    <a href="https://youtu.be/dQw4w9WgXcQ" target="_blank">
+        <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/0.jpg" alt="Rick Astley - Never Gonna Give You Up (Official Music Video)" width="560">
+    </a>
+</div>
+        <h2>1. Overall Truthfulness Assessment: AssessmentLevel.HIGHLYLIKELYTRUE</h2>
+<p>Based on the available evidence, all claims are verifiable and supported by reliable sources. The video is indeed the official music video, the song was a global hit in 1987, and Simon West directed the video. No contradictory evidence was found.</p>
+<h2>2. Summary of Key Findings</h2>
+<table>
+<thead>
+<tr>
+<th>Finding</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Source Authenticity</strong></td>
+<td>The video is hosted on the official Rick Astley YouTube channel, confirming its authenticity as the official music video.</td>
+</tr>
+<tr>
+<td><strong>Historical Accuracy</strong></td>
+<td>Multiple sources, including Wikipedia and biographical sites, confirm that 'Never Gonna Give You Up' was a global hit in 1987.</td>
+</tr>
+<tr>
+<td><strong>Director Verification</strong></td>
+<td>Simon West's biography and Wikipedia page confirm that he directed the music video for 'Never Gonna Give You Up'.</td>
+</tr>
+</tbody>
+</table>
+<h2>3. Claims Breakdown with Verification Results</h2>
+<table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Verification Result</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The video was directed by Simon West.</td>
+<td>TRUE</td>
+<td>Simon West's Wikipedia page and biography confirm that he directed the music video for 'Never Gonna Give You Up'.</td>
+</tr>
+</tbody>
+</table>
+<h2>4. Evidence Summary</h2>
+<h3>Primary Sources</h3>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Type</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[Rick Astley - Never Gonna Give You Up (Official Music Video) - YouTube](<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" style="text-decoration: underline; color: var(--primary-color);">https://www.youtube.com/watch?v=dQw4w9WgXcQ</a>)</td>
+<td>Video Description</td>
+<td>Never Gonna Give You Up, the first single from Rick's debut album Whenever You Need Somebody, was a global smash on its release in 1987.</td>
+</tr>
+<tr>
+<td>[Never Gonna Give You Up - Wikipedia](<a href="https://en.wikipedia.org/wiki/NeverGonnaGiveYouUp" target="_blank" style="text-decoration: underline; color: var(--primary-color);">https://en.wikipedia.org/wiki/NeverGonnaGiveYouUp</a>)</td>
+<td>Encyclopedia</td>
+<td>Never Gonna Give You Up&quot; is the debut song recorded by English singer Rick Astley, released as his first single on 27 July 1987. It was written and produced by Stock Aitken Waterman, and was released as the lead single from Astley's debut album Whenever You Need Somebody. The song was a worldwide number-one hit, initially in the United Kingdom in 1987, where it stayed at the top of the chart for five weeks and was the best-selling single of the year. It topped the charts in 25 countries, including the United States and West Germany.</td>
+</tr>
+<tr>
+<td>[Rick Astley - Age, Bio, Birthday, Family, Stats</td>
+<td>Kidadl](<a href="https://kidadl.com/people/rick-astley-facts" target="_blank" style="text-decoration: underline; color: var(--primary-color);">https://kidadl.com/people/rick-astley-facts</a>)</td>
+<td>Biographical Website</td>
+</tr>
+<tr>
+<td>[Simon West](<a href="https://en.wikipedia.org/wiki/SimonWest" target="_blank" style="text-decoration: underline; color: var(--primary-color);">https://en.wikipedia.org/wiki/SimonWest</a>)</td>
+<td>Encyclopedia</td>
+<td>Simon West (born 1958) is an English film and television director and producer. He has directed films such as Con Air, Lara Croft: Tomb Raider, The Expendables 2, The Mechanic, and Stratagem. He has directed television shows such as Close to Home and Keen Eddie. West began his career as a film editor for the BBC. He then moved into directing commercials. He has directed commercials for companies such as AT&amp;T, 7 Up, Pepsi, Budweiser, and Miller Lite. He also directed Rick Astley's music video for &quot;Never Gonna Give You Up&quot;.</td>
+</tr>
+<tr>
+<td>[Simon West - Biography](<a href="https://simonwest.com/biography/" target="_blank" style="text-decoration: underline; color: var(--primary-color);">https://simonwest.com/biography/</a>)</td>
+<td>Official Website</td>
+<td>Simon began his career as a film editor for the BBC before moving into directing commercials. He has directed commercials for AT&amp;T, 7UP, Pepsi, Budweiser and Miller Lite. He also directed Rick Astley’s music video for “Never Gonna Give You Up”.</td>
+</tr>
+</tbody>
+</table>
+<h3>Secondary Sources</h3>
+<ul>
+<li>Music charts from 1987</li>
+<li>Interviews with Rick Astley and Simon West</li>
+</ul>
+<h2>5. Updated CRAAP Analysis Incorporating New Evidence</h2>
+<table>
+<thead>
+<tr>
+<th>Criteria</th>
+<th>Assessment</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Currency</strong></td>
+<td>CredibilityLevel.HIGH</td>
+<td>The information is current, as it relates to historical facts about the song and video released in 1987. The sources are regularly updated (e.g., Wikipedia).</td>
+</tr>
+<tr>
+<td><strong>Relevance</strong></td>
+<td>CredibilityLevel.HIGH</td>
+<td>The sources directly address the claims made about the music video, its success, and the director.</td>
+</tr>
+<tr>
+<td><strong>Authority</strong></td>
+<td>CredibilityLevel.HIGH</td>
+<td>The sources include the official YouTube channel of Rick Astley, Wikipedia, and Simon West's official website, all of which are authoritative sources.</td>
+</tr>
+<tr>
+<td><strong>Accuracy</strong></td>
+<td>CredibilityLevel.HIGH</td>
+<td>The information is consistent across multiple sources, including official channels and reputable websites. No contradictory information was found.</td>
+</tr>
+<tr>
+<td><strong>Purpose</strong></td>
+<td>CredibilityLevel.HIGH</td>
+<td>The purpose of the sources is to provide factual information about the song, the video, and the people involved. There is no apparent bias.</td>
+</tr>
+</tbody>
+</table>
+<h2>6. Recommendations Based on Findings</h2>
+<ol>
+<li>No further investigation is needed as the claims are well-supported by credible sources.</li>
+</ol>
+<h2>7. Evidence Details with Source Credibility Assessment</h2>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Credibility Assessment</th>
+<th>Justification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rick Astley Official YouTube Channel</td>
+<td>CredibilityLevel.HIGH</td>
+<td>The official channel is the primary source for verifying the authenticity of the music video.</td>
+</tr>
+<tr>
+<td>Wikipedia</td>
+<td>CredibilityLevel.MEDIUM</td>
+<td>Wikipedia is a generally reliable source, but should be cross-referenced with other sources for critical information.</td>
+</tr>
+<tr>
+<td>Simon West Official Website</td>
+<td>CredibilityLevel.HIGH</td>
+<td>The official website provides direct confirmation of Simon West's involvement in directing the music video.</td>
+</tr>
+</tbody>
+</table>
+
+    </div>
+</body>
+</html>

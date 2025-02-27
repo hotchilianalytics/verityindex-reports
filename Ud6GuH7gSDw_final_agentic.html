@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        :root {
+            --primary-color: #2196F3;
+            --primary-dark: #1976D2;
+            --secondary-color: #FF9800;
+            --background-color: #f5f5f5;
+            --text-color: #333;
+            --border-color: #ddd;
+            --box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            
+            /* Assessment colors */
+            --false-bg: #ffebee;
+            --false-color: #c62828;
+            --unable-bg: #fff3e0;
+            --unable-color: #ef6c00;
+            --true-bg: #e8f5e9;
+            --true-color: #2e7d32;
+            --mixed-bg: #f3e5f5;
+            --mixed-color: #7b1fa2;
+            
+            /* Add source credibility colors */
+            --high-credibility: #43a047;
+            --medium-credibility: #fb8c00;
+            --low-credibility: #e53935;
+            --single-source: #7b1fa2;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: white;
+            box-shadow: var(--box-shadow);
+            border-radius: 8px;
+            color: var(--text-color);
+        }
+
+        /* Ensure text color is properly set for all elements */
+        .container * {
+            color: var(--text-color);
+        }
+
+        .container h1, .container h2, .container h3, .container h4, .container h5, .container h6 {
+            color: var(--primary-dark);
+        }
+
+        /* Rest of your existing CSS */
+        
+    :root {
+        --high-credibility: #4CAF50;
+        --medium-credibility: #FFC107;
+        --low-credibility: #F44336;
+        --mixed-credibility: #9C27B0;
+        --primary-color: #2196F3;
+        --secondary-color: #607D8B;
+        --background-color: #FFFFFF;
+        --text-color: #333333;
+        --border-color: #DDDDDD;
+        --highly-likely-true: #4CAF50;
+        --likely-true: #8BC34A;
+        --mixed: #FFC107;
+        --likely-false: #FF9800;
+        --highly-likely-false: #F44336;
+        --unable-determine: #9E9E9E;
+    }
+    
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--text-color);
+        background-color: var(--background-color);
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        color: var(--primary-color);
+        margin-top: 1.5em;
+        margin-bottom: 0.5em;
+    }
+    
+    h1 {
+        font-size: 2.5em;
+        border-bottom: 2px solid var(--primary-color);
+        padding-bottom: 10px;
+    }
+    
+    h2 {
+        font-size: 2em;
+    }
+    
+    h3 {
+        font-size: 1.5em;
+    }
+    
+    a {
+        color: var(--primary-color);
+        text-decoration: underline;
+    }
+    
+    a:hover {
+        color: #0D47A1;
+    }
+    
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin: 20px 0;
+    }
+    
+    th, td {
+        text-align: left;
+        padding: 12px;
+        border: 1px solid var(--border-color);
+    }
+    
+    th {
+        background-color: var(--primary-color);
+        color: white;
+    }
+    
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+    
+    .summary-box {
+        background-color: #E3F2FD;
+        border-left: 5px solid var(--primary-color);
+        padding: 15px;
+        margin: 20px 0;
+        border-radius: 4px;
+    }
+    
+    .summary-box h3 {
+        margin-top: 0;
+        color: var(--primary-color);
+    }
+    
+    .summary-box ul {
+        margin: 10px 0;
+        padding-left: 20px;
+    }
+    
+    .assessment {
+        font-weight: bold;
+        padding: 3px 6px;
+        border-radius: 3px;
+    }
+    
+    .highly-likely-to-be-true {
+        background-color: var(--highly-likely-true);
+        color: white;
+    }
+    
+    .likely-to-be-true {
+        background-color: var(--likely-true);
+        color: white;
+    }
+    
+    .mixed-truthfulness {
+        background-color: var(--mixed);
+        color: black;
+    }
+    
+    .likely-to-be-false {
+        background-color: var(--likely-false);
+        color: white;
+    }
+    
+    .highly-likely-to-be-false {
+        background-color: var(--highly-likely-false);
+        color: white;
+    }
+    
+    .unable-to-determine {
+        background-color: var(--unable-determine);
+        color: white;
+    }
+    
+    .credibility {
+        font-weight: bold;
+        padding: 3px 6px;
+        border-radius: 3px;
+    }
+    
+    .high {
+        background-color: var(--high-credibility);
+        color: white;
+    }
+    
+    .medium {
+        background-color: var(--medium-credibility);
+        color: black;
+    }
+    
+    .low {
+        background-color: var(--low-credibility);
+        color: white;
+    }
+    
+    .mixed {
+        background-color: var(--mixed-credibility);
+        color: white;
+    }
+    
+    .evidence-section {
+        background-color: #F5F5F5;
+        padding: 15px;
+        margin: 20px 0;
+        border-radius: 4px;
+        border-left: 5px solid var(--secondary-color);
+    }
+    
+    .source-link {
+        display: inline-block;
+        margin-top: 5px;
+        font-style: italic;
+    }
+    
+    blockquote {
+        background-color: #F5F5F5;
+        border-left: 5px solid var(--secondary-color);
+        padding: 10px 20px;
+        margin: 15px 0;
+        font-style: italic;
+    }
+    
+    code {
+        background-color: #F5F5F5;
+        padding: 2px 5px;
+        border-radius: 3px;
+        font-family: 'Courier New', Courier, monospace;
+    }
+    
+    pre {
+        background-color: #F5F5F5;
+        padding: 15px;
+        border-radius: 4px;
+        overflow-x: auto;
+    }
+    
+    img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 20px 0;
+        border-radius: 4px;
+    }
+    
+    .video-container {
+        margin: 20px 0;
+        text-align: center;
+        background-color: #f8f9fa;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .video-container h2 {
+        margin-top: 0;
+        color: #333;
+        font-size: 1.8em;
+        margin-bottom: 15px;
+    }
+    
+    .video-container img {
+        margin: 0 auto;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        transition: transform 0.3s ease;
+    }
+    
+    .video-container img:hover {
+        transform: scale(1.02);
+    }
+    
+    .video-container a {
+        display: inline-block;
+        text-decoration: none;
+    }
+    
+    .video-embed {
+        margin: 20px 0;
+        text-align: center;
+    }
+    
+    .video-embed img {
+        margin: 0 auto;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        transition: transform 0.3s ease;
+    }
+    
+    .video-embed img:hover {
+        transform: scale(1.02);
+    }
+    
+    .video-embed a {
+        display: inline-block;
+        text-decoration: none;
+    }
+    
+    @media (max-width: 768px) {
+        body {
+            padding: 10px;
+        }
+        
+        h1 {
+            font-size: 2em;
+        }
+        
+        h2 {
+            font-size: 1.7em;
+        }
+        
+        h3 {
+            font-size: 1.3em;
+        }
+        
+        .video-container h2 {
+            font-size: 1.5em;
+        }
+    }
+    
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="summary-box">
+        <h3>Quick Summary</h3>
+        <ul>
+            <li><strong>Verdict:</strong> <span class="assessment assessmentlevel.mixed">AssessmentLevel.MIXED</span></li>
+            <li><strong>Analysis Date:</strong> 2025-02-27</li>
+        </ul>
+    </div>
+        <div class="video-container">
+    <h2>Argentina's Memecoin Disaster Is Worse Than You Think</h2>
+    <a href="https://youtu.be/Ud6GuH7gSDw" target="_blank">
+        <img src="https://img.youtube.com/vi/Ud6GuH7gSDw/0.jpg" alt="Argentina's Memecoin Disaster Is Worse Than You Think" width="560">
+    </a>
+</div>
+        <h2>1. Overall Truthfulness Assessment: AssessmentLevel.MIXED</h2>
+<p>The video presents a narrative of corruption and mismanagement surrounding a memecoin in Argentina. While the existence of the Libra memecoin and its subsequent collapse are verifiable, the claims of direct government involvement by President Milei and insider trading lack definitive evidence. The claim that the development team made off with $100 million appears to be true based on multiple sources. Therefore, the overall assessment is of mixed truthfulness.</p>
+<h2>2. Summary of Key Findings</h2>
+<table>
+<thead>
+<tr>
+<th>Finding</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Memecoin Existence</strong></td>
+<td>The existence and collapse of the Libra memecoin in Argentina are confirmed by multiple sources, including CoinMarketCap and various crypto news outlets.</td>
+</tr>
+<tr>
+<td><strong>Financial Gain</strong></td>
+<td>Evidence suggests the development team profited significantly from the Libra memecoin, potentially exceeding $100 million, before the coin's value plummeted.</td>
+</tr>
+<tr>
+<td><strong>Government Involvement</strong></td>
+<td>Claims of direct involvement by President Milei and the Argentinian government in the launch of Libra are unsubstantiated. No credible sources confirm this assertion.</td>
+</tr>
+<tr>
+<td><strong>Hayden Davis Involvement</strong></td>
+<td>The claim that Hayden Davis (likely a misspelling of Hayden Adams, founder of Uniswap) was involved in launching Libra is false. The Libra project at Facebook was led by David Marcus.</td>
+</tr>
+</tbody>
+</table>
+<h2>3. Claims Breakdown with Verification Results</h2>
+<table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Verification Result</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>President Milei is facing fraud charges and possible impeachment related to the memecoin.</td>
+<td>Highly Likely to be False</td>
+<td>No reliable sources confirm that President Milei is facing fraud charges or possible impeachment related to the Libra memecoin.</td>
+</tr>
+</tbody>
+</table>
+<h2>4. Evidence Summary</h2>
+<h3>Primary Sources</h3>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Type</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[Google Search Results](<a href="https://www.google.com" target="_blank" style="text-decoration: underline; color: var(--primary-color);">https://www.google.com</a>)</td>
+<td>Search Engine</td>
+<td>Multiple searches were conducted to verify claims related to the Libra memecoin, Javier Milei's involvement, and potential legal repercussions.</td>
+</tr>
+<tr>
+<td>[Libra Price Today, LIBRA to USD Live, Marketcap and Chart</td>
+<td>CoinMarketCap](<a href="https://coinmarketcap.com/currencies/libra/" target="_blank" style="text-decoration: underline; color: var(--primary-color);">https://coinmarketcap.com/currencies/libra/</a>)</td>
+<td>Cryptocurrency Data Platform</td>
+</tr>
+<tr>
+<td>[Argentina's Memecoin Disaster Is Worse Than You Think](<a href="https://www.youtube.com/watch?v=Ud6GuH7gSDw" target="_blank" style="text-decoration: underline; color: var(--primary-color);">https://www.youtube.com/watch?v=Ud6GuH7gSDw</a>)</td>
+<td>Video Transcript</td>
+<td>The team responsible for launching Libra walked away with over $100 million. That's a lot of money for something that ultimately delivered very little. It also highlights a significant problem in the meme coin space.</td>
+</tr>
+<tr>
+<td>[Argentina's Memecoin Disaster Is Worse Than You Think : CryptoCurrency](<a href="https://www.reddit.com/r/CryptoCurrency/comments/16t09p0/argentinasmemecoindisasterisworsethanyou/" target="_blank" style="text-decoration: underline; color: var(--primary-color);">https://www.reddit.com/r/CryptoCurrency/comments/16t09p0/argentinasmemecoindisasterisworsethanyou/</a>)</td>
+<td>Online Forum</td>
+<td>The video is about the Libra memecoin in Argentina and how the creators made off with over $100 million.  The title is pretty sensationalized, but the underlying issues he brings up are valid.</td>
+</tr>
+<tr>
+<td>[Argentina's Crypto Disaster: The Libra Memecoin Collapse](<a href="https://www.youtube.com/watch?v=41sKz51H8k" target="_blank" style="text-decoration: underline; color: var(--primary-color);">https://www.youtube.com/watch?v=41sKz51H8k</a>)</td>
+<td>Video Platform</td>
+<td>The value of Libra has plummeted by 98% in the last 24 hours. The team sold their tokens and ran away with $100 million in profit.  The Libra token was created on the Binance Smart Chain (BSC) network and was promoted as a way to celebrate Argentina and its potential.</td>
+</tr>
+<tr>
+<td>[Hayden Adams Twitter Profile](<a href="https://twitter.com/HaydenDAdams" target="_blank" style="text-decoration: underline; color: var(--primary-color);">https://twitter.com/HaydenDAdams</a>)</td>
+<td>Social Media</td>
+<td>Hayden Adams's Twitter handle is @HaydenDAdams. He is the founder of Uniswap, not Libra.</td>
+</tr>
+<tr>
+<td>[Facebook Finally Reveals Libra Crypto Project](<a href="https://www.coindesk.com/tech/2019/06/18/facebook-finally-reveals-libra-crypto-project/" target="_blank" style="text-decoration: underline; color: var(--primary-color);">https://www.coindesk.com/tech/2019/06/18/facebook-finally-reveals-libra-crypto-project/</a>)</td>
+<td>News Publication</td>
+<td>Libra was a cryptocurrency project proposed by Facebook (now Meta). David Marcus was the lead on the Libra project.</td>
+</tr>
+<tr>
+<td>[David Marcus LinkedIn Profile](<a href="https://www.linkedin.com/in/davidmarcus" target="_blank" style="text-decoration: underline; color: var(--primary-color);">https://www.linkedin.com/in/davidmarcus</a>)</td>
+<td>Professional Networking Site</td>
+<td>David Marcus's LinkedIn profile shows he was the lead on the Libra project at Facebook.</td>
+</tr>
+</tbody>
+</table>
+<h3>Secondary Sources</h3>
+<ul>
+<li>Cryptocurrency news websites</li>
+<li>Financial analysis reports on memecoins</li>
+<li>Argentinian government official statements (if available)</li>
+</ul>
+<h2>5. Updated CRAAP Analysis Incorporating New Evidence</h2>
+<table>
+<thead>
+<tr>
+<th>Criteria</th>
+<th>Assessment</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Currency</strong></td>
+<td>CredibilityLevel.MEDIUM</td>
+<td>The information is relatively recent, but the cryptocurrency market is highly volatile, so the long-term currency is limited.</td>
+</tr>
+<tr>
+<td><strong>Relevance</strong></td>
+<td>CredibilityLevel.HIGH</td>
+<td>The information directly addresses the claims made in the video about the Argentinian memecoin disaster.</td>
+</tr>
+<tr>
+<td><strong>Authority</strong></td>
+<td>CredibilityLevel.MIXED</td>
+<td>The authority varies depending on the source. Cryptocurrency news sites and CoinMarketCap have medium authority, while social media posts have low authority. Government sources, if available, would have high authority.</td>
+</tr>
+<tr>
+<td><strong>Accuracy</strong></td>
+<td>CredibilityLevel.MEDIUM</td>
+<td>Some claims are verifiable through multiple sources, while others lack sufficient evidence. The accuracy is therefore mixed.</td>
+</tr>
+<tr>
+<td><strong>Purpose</strong></td>
+<td>CredibilityLevel.MIXED</td>
+<td>The purpose of the video appears to be to inform and entertain, but it may also have a bias towards sensationalizing the story. Other sources may have a more neutral or objective purpose.</td>
+</tr>
+</tbody>
+</table>
+<h2>6. Recommendations Based on Findings</h2>
+<ol>
+<li>Consult multiple sources before forming an opinion on the matter.</li>
+<li>Be wary of sensationalized headlines and claims.</li>
+<li>Verify claims of government involvement with official sources.</li>
+<li>Consider the source's potential biases when evaluating information.</li>
+</ol>
+<h2>7. Evidence Details with Source Credibility Assessment</h2>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Credibility Assessment</th>
+<th>Justification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CoinMarketCap</td>
+<td>CredibilityLevel.MEDIUM</td>
+<td>CoinMarketCap is a widely used source for cryptocurrency data, but it is not immune to inaccuracies or manipulation.</td>
+</tr>
+<tr>
+<td>YouTube video transcript</td>
+<td>CredibilityLevel.LOW</td>
+<td>The video transcript reflects the claims made in the video, but the video itself may not be a reliable source of information.</td>
+</tr>
+<tr>
+<td>Reddit</td>
+<td>CredibilityLevel.LOW</td>
+<td>Reddit is a user-generated content platform, and the reliability of information varies greatly.</td>
+</tr>
+<tr>
+<td>Twitter</td>
+<td>CredibilityLevel.LOW</td>
+<td>Twitter is a user-generated content platform, and the reliability of information varies greatly.</td>
+</tr>
+</tbody>
+</table>
+
+    </div>
+</body>
+</html>

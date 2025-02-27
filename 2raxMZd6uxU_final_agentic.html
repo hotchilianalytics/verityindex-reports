@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        :root {
+            --primary-color: #2196F3;
+            --primary-dark: #1976D2;
+            --secondary-color: #FF9800;
+            --background-color: #f5f5f5;
+            --text-color: #333;
+            --border-color: #ddd;
+            --box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            
+            /* Assessment colors */
+            --false-bg: #ffebee;
+            --false-color: #c62828;
+            --unable-bg: #fff3e0;
+            --unable-color: #ef6c00;
+            --true-bg: #e8f5e9;
+            --true-color: #2e7d32;
+            --mixed-bg: #f3e5f5;
+            --mixed-color: #7b1fa2;
+            
+            /* Add source credibility colors */
+            --high-credibility: #43a047;
+            --medium-credibility: #fb8c00;
+            --low-credibility: #e53935;
+            --single-source: #7b1fa2;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: white;
+            box-shadow: var(--box-shadow);
+            border-radius: 8px;
+            color: var(--text-color);
+        }
+
+        /* Ensure text color is properly set for all elements */
+        .container * {
+            color: var(--text-color);
+        }
+
+        .container h1, .container h2, .container h3, .container h4, .container h5, .container h6 {
+            color: var(--primary-dark);
+        }
+
+        /* Rest of your existing CSS */
+        
+    :root {
+        --high-credibility: #4CAF50;
+        --medium-credibility: #FFC107;
+        --low-credibility: #F44336;
+        --mixed-credibility: #9C27B0;
+        --primary-color: #2196F3;
+        --secondary-color: #607D8B;
+        --background-color: #FFFFFF;
+        --text-color: #333333;
+        --border-color: #DDDDDD;
+        --highly-likely-true: #4CAF50;
+        --likely-true: #8BC34A;
+        --mixed: #FFC107;
+        --likely-false: #FF9800;
+        --highly-likely-false: #F44336;
+        --unable-determine: #9E9E9E;
+    }
+    
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--text-color);
+        background-color: var(--background-color);
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        color: var(--primary-color);
+        margin-top: 1.5em;
+        margin-bottom: 0.5em;
+    }
+    
+    h1 {
+        font-size: 2.5em;
+        border-bottom: 2px solid var(--primary-color);
+        padding-bottom: 10px;
+    }
+    
+    h2 {
+        font-size: 2em;
+    }
+    
+    h3 {
+        font-size: 1.5em;
+    }
+    
+    a {
+        color: var(--primary-color);
+        text-decoration: underline;
+    }
+    
+    a:hover {
+        color: #0D47A1;
+    }
+    
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin: 20px 0;
+    }
+    
+    th, td {
+        text-align: left;
+        padding: 12px;
+        border: 1px solid var(--border-color);
+    }
+    
+    th {
+        background-color: var(--primary-color);
+        color: white;
+    }
+    
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+    
+    .summary-box {
+        background-color: #E3F2FD;
+        border-left: 5px solid var(--primary-color);
+        padding: 15px;
+        margin: 20px 0;
+        border-radius: 4px;
+    }
+    
+    .summary-box h3 {
+        margin-top: 0;
+        color: var(--primary-color);
+    }
+    
+    .summary-box ul {
+        margin: 10px 0;
+        padding-left: 20px;
+    }
+    
+    .assessment {
+        font-weight: bold;
+        padding: 3px 6px;
+        border-radius: 3px;
+    }
+    
+    .highly-likely-to-be-true {
+        background-color: var(--highly-likely-true);
+        color: white;
+    }
+    
+    .likely-to-be-true {
+        background-color: var(--likely-true);
+        color: white;
+    }
+    
+    .mixed-truthfulness {
+        background-color: var(--mixed);
+        color: black;
+    }
+    
+    .likely-to-be-false {
+        background-color: var(--likely-false);
+        color: white;
+    }
+    
+    .highly-likely-to-be-false {
+        background-color: var(--highly-likely-false);
+        color: white;
+    }
+    
+    .unable-to-determine {
+        background-color: var(--unable-determine);
+        color: white;
+    }
+    
+    .credibility {
+        font-weight: bold;
+        padding: 3px 6px;
+        border-radius: 3px;
+    }
+    
+    .high {
+        background-color: var(--high-credibility);
+        color: white;
+    }
+    
+    .medium {
+        background-color: var(--medium-credibility);
+        color: black;
+    }
+    
+    .low {
+        background-color: var(--low-credibility);
+        color: white;
+    }
+    
+    .mixed {
+        background-color: var(--mixed-credibility);
+        color: white;
+    }
+    
+    .evidence-section {
+        background-color: #F5F5F5;
+        padding: 15px;
+        margin: 20px 0;
+        border-radius: 4px;
+        border-left: 5px solid var(--secondary-color);
+    }
+    
+    .source-link {
+        display: inline-block;
+        margin-top: 5px;
+        font-style: italic;
+    }
+    
+    blockquote {
+        background-color: #F5F5F5;
+        border-left: 5px solid var(--secondary-color);
+        padding: 10px 20px;
+        margin: 15px 0;
+        font-style: italic;
+    }
+    
+    code {
+        background-color: #F5F5F5;
+        padding: 2px 5px;
+        border-radius: 3px;
+        font-family: 'Courier New', Courier, monospace;
+    }
+    
+    pre {
+        background-color: #F5F5F5;
+        padding: 15px;
+        border-radius: 4px;
+        overflow-x: auto;
+    }
+    
+    img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 20px 0;
+        border-radius: 4px;
+    }
+    
+    .video-container {
+        margin: 20px 0;
+        text-align: center;
+        background-color: #f8f9fa;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .video-container h2 {
+        margin-top: 0;
+        color: #333;
+        font-size: 1.8em;
+        margin-bottom: 15px;
+    }
+    
+    .video-container img {
+        margin: 0 auto;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        transition: transform 0.3s ease;
+    }
+    
+    .video-container img:hover {
+        transform: scale(1.02);
+    }
+    
+    .video-container a {
+        display: inline-block;
+        text-decoration: none;
+    }
+    
+    .video-embed {
+        margin: 20px 0;
+        text-align: center;
+    }
+    
+    .video-embed img {
+        margin: 0 auto;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        transition: transform 0.3s ease;
+    }
+    
+    .video-embed img:hover {
+        transform: scale(1.02);
+    }
+    
+    .video-embed a {
+        display: inline-block;
+        text-decoration: none;
+    }
+    
+    @media (max-width: 768px) {
+        body {
+            padding: 10px;
+        }
+        
+        h1 {
+            font-size: 2em;
+        }
+        
+        h2 {
+            font-size: 1.7em;
+        }
+        
+        h3 {
+            font-size: 1.3em;
+        }
+        
+        .video-container h2 {
+            font-size: 1.5em;
+        }
+    }
+    
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="summary-box">
+        <h3>Quick Summary</h3>
+        <ul>
+            <li><strong>Verdict:</strong> <span class="assessment assessmentlevel.mixed">AssessmentLevel.MIXED</span></li>
+            <li><strong>Analysis Date:</strong> 2025-02-27</li>
+        </ul>
+    </div>
+        <div class="video-container">
+    <h2>3 Natural Cures “They” Don’t Want You to Know About</h2>
+    <a href="https://youtu.be/2raxMZd6uxU" target="_blank">
+        <img src="https://img.youtube.com/vi/2raxMZd6uxU/0.jpg" alt="3 Natural Cures “They” Don’t Want You to Know About" width="560">
+    </a>
+</div>
+        <h2>1. Overall Truthfulness Assessment: AssessmentLevel.MIXED</h2>
+<p>The video contains a mix of accurate and potentially misleading information. While some of the claims regarding alternative treatments for anxiety, depression, acid reflux, and menstrual issues have some scientific support, the video's framing and implied conspiracy raise concerns. The claim about mainstream medicine deliberately suppressing alternative treatments is unsubstantiated and contributes to distrust in established medical practices. Therefore, the video's overall truthfulness is mixed.</p>
+<h2>2. Summary of Key Findings</h2>
+<table>
+<thead>
+<tr>
+<th>Finding</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Alternative Treatments</strong></td>
+<td>The video suggests alternative treatments for anxiety, depression, acid reflux, and menstrual issues. While some of these treatments, such as lifestyle changes for acid reflux and certain therapies for anxiety and depression, are supported by research, the video may overstate their effectiveness and applicability to all individuals.</td>
+</tr>
+<tr>
+<td><strong>Conspiracy Ideation</strong></td>
+<td>The title and implied narrative of 'They' not wanting viewers to know about these cures suggests a conspiracy by mainstream medicine or pharmaceutical companies. This type of framing can be misleading and can erode trust in established medical advice.</td>
+</tr>
+<tr>
+<td><strong>Scientific Accuracy</strong></td>
+<td>While some claims are supported by scientific evidence, the video lacks specific citations and may present information in a way that oversimplifies complex medical conditions and treatments. The level of scientific rigor is not consistent throughout the video.</td>
+</tr>
+</tbody>
+</table>
+<h2>3. Claims Breakdown with Verification Results</h2>
+<table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Verification Result</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Acid reflux can be reversed with a healthy diet and lifestyle.</td>
+<td>TRUE</td>
+<td>Lifestyle modifications, such as weight loss, dietary changes (avoiding trigger foods), elevating the head of the bed, and eating smaller meals, can significantly reduce acid reflux symptoms and, in some cases, reverse the condition. Medical sources like the Mayo Clinic and the NIDDK support this claim.</td>
+</tr>
+<tr>
+<td>Menstrual/gynecological issues can be treated with TCM formulas, and that birth control has potential side effects.</td>
+<td>TRUE</td>
+<td>Traditional Chinese Medicine (TCM) is used to treat various gynecological issues, and some studies suggest its effectiveness for conditions like endometriosis. Additionally, birth control pills are known to have potential side effects, as documented by reputable sources like the NHS and Planned Parenthood.</td>
+</tr>
+</tbody>
+</table>
+<h2>4. Evidence Summary</h2>
+<h3>Primary Sources</h3>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Type</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[Anxiety and Complementary Health Approaches</td>
+<td>NCCIH](<a href="https://www.nccih.nih.gov/health/anxiety-and-complementary-health-approaches" target="_blank" style="text-decoration: underline; color: var(--primary-color);">https://www.nccih.nih.gov/health/anxiety-and-complementary-health-approaches</a>)</td>
+<td>Government Website</td>
+</tr>
+<tr>
+<td>[Acid reflux - Diagnosis and treatment - Mayo Clinic](<a href="https://www.mayoclinic.org/diseases-conditions/acid-reflux/diagnosis-treatment/drc-20350158" target="_blank" style="text-decoration: underline; color: var(--primary-color);">https://www.mayoclinic.org/diseases-conditions/acid-reflux/diagnosis-treatment/drc-20350158</a>)</td>
+<td>Medical Website</td>
+<td>Lifestyle changes may help reduce the frequency of acid reflux. Try to: Maintain a healthy weight. Excess pounds put pressure on your abdomen, pushing up your stomach and causing acid to back up into your esophagus.</td>
+</tr>
+<tr>
+<td>[Combined pill risks - NHS](<a href="https://www.nhs.uk/conditions/contraception/combined-pill-risks/" target="_blank" style="text-decoration: underline; color: var(--primary-color);">https://www.nhs.uk/conditions/contraception/combined-pill-risks/</a>)</td>
+<td>Government Health Website</td>
+<td>The combined pill is generally very safe, but there are some risks. Serious side effects are rare. The most serious possible side effects are blood clots and cancer.</td>
+</tr>
+<tr>
+<td>[Traditional Chinese medicine in treatment of endometriosis - PMC - National Center for Biotechnology Information](<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5627545/" target="_blank" style="text-decoration: underline; color: var(--primary-color);">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5627545/</a>)</td>
+<td>Research Database</td>
+<td>In traditional Chinese medicine (TCM), endometriosis is classified as blood stasis syndrome. Many clinical studies have shown that TCM has a positive effect on endometriosis with few side effects.</td>
+</tr>
+</tbody>
+</table>
+<h3>Secondary Sources</h3>
+<ul>
+<li>Google Search</li>
+<li>World Psychiatry Journal</li>
+</ul>
+<h2>5. Updated CRAAP Analysis Incorporating New Evidence</h2>
+<table>
+<thead>
+<tr>
+<th>Criteria</th>
+<th>Assessment</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Currency</strong></td>
+<td>CredibilityLevel.MEDIUM</td>
+<td>The information on alternative treatments is generally current, but specific studies and recommendations may need to be verified for their publication dates.</td>
+</tr>
+<tr>
+<td><strong>Relevance</strong></td>
+<td>CredibilityLevel.HIGH</td>
+<td>The information directly addresses the claims made in the video regarding alternative treatments for specific health conditions.</td>
+</tr>
+<tr>
+<td><strong>Authority</strong></td>
+<td>CredibilityLevel.MEDIUM</td>
+<td>Sources include reputable medical websites (Mayo Clinic, NHS), government health organizations (NCCIH), and research databases (PubMed Central). However, the video itself lacks clear authorial credentials.</td>
+</tr>
+<tr>
+<td><strong>Accuracy</strong></td>
+<td>CredibilityLevel.MEDIUM</td>
+<td>While the information is generally accurate based on available evidence, the video's presentation may oversimplify complex medical issues and lack specific citations.</td>
+</tr>
+<tr>
+<td><strong>Purpose</strong></td>
+<td>CredibilityLevel.MIXED</td>
+<td>The purpose appears to be to inform viewers about alternative treatments, but the framing suggests a bias against mainstream medicine and may be intended to promote specific alternative therapies.</td>
+</tr>
+</tbody>
+</table>
+<h2>6. Recommendations Based on Findings</h2>
+<ol>
+<li>Consult with a qualified healthcare professional before making any changes to your treatment plan.</li>
+<li>Critically evaluate the evidence presented in the video and seek out additional information from reputable sources.</li>
+<li>Be wary of claims that suggest a conspiracy or that promote distrust in established medical practices.</li>
+<li>Consider alternative treatments as complementary to, rather than replacements for, conventional medical care.</li>
+</ol>
+<h2>7. Evidence Details with Source Credibility Assessment</h2>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Credibility Assessment</th>
+<th>Justification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>National Center for Complementary and Integrative Health (NCCIH)</td>
+<td>CredibilityLevel.HIGH</td>
+<td>NCCIH is a government agency that provides evidence-based information on complementary and integrative health practices.</td>
+</tr>
+<tr>
+<td>Mayo Clinic</td>
+<td>CredibilityLevel.HIGH</td>
+<td>Mayo Clinic is a well-respected medical institution known for providing accurate and reliable health information.</td>
+</tr>
+<tr>
+<td>NHS (National Health Service)</td>
+<td>CredibilityLevel.HIGH</td>
+<td>The NHS is the publicly funded healthcare system in England, providing reliable health information and guidance.</td>
+</tr>
+<tr>
+<td>PubMed Central</td>
+<td>CredibilityLevel.HIGH</td>
+<td>PubMed Central is a free archive of biomedical and life sciences literature, providing access to peer-reviewed research.</td>
+</tr>
+</tbody>
+</table>
+
+    </div>
+</body>
+</html>

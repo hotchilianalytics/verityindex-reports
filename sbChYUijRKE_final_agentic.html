@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        :root {
+            --primary-color: #2196F3;
+            --primary-dark: #1976D2;
+            --secondary-color: #FF9800;
+            --background-color: #f5f5f5;
+            --text-color: #333;
+            --border-color: #ddd;
+            --box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            
+            /* Assessment colors */
+            --false-bg: #ffebee;
+            --false-color: #c62828;
+            --unable-bg: #fff3e0;
+            --unable-color: #ef6c00;
+            --true-bg: #e8f5e9;
+            --true-color: #2e7d32;
+            --mixed-bg: #f3e5f5;
+            --mixed-color: #7b1fa2;
+            
+            /* Add source credibility colors */
+            --high-credibility: #43a047;
+            --medium-credibility: #fb8c00;
+            --low-credibility: #e53935;
+            --single-source: #7b1fa2;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: white;
+            box-shadow: var(--box-shadow);
+            border-radius: 8px;
+            color: var(--text-color);
+        }
+
+        /* Ensure text color is properly set for all elements */
+        .container * {
+            color: var(--text-color);
+        }
+
+        .container h1, .container h2, .container h3, .container h4, .container h5, .container h6 {
+            color: var(--primary-dark);
+        }
+
+        /* Rest of your existing CSS */
+        
+    :root {
+        --high-credibility: #4CAF50;
+        --medium-credibility: #FFC107;
+        --low-credibility: #F44336;
+        --mixed-credibility: #9C27B0;
+        --primary-color: #2196F3;
+        --secondary-color: #607D8B;
+        --background-color: #FFFFFF;
+        --text-color: #333333;
+        --border-color: #DDDDDD;
+        --highly-likely-true: #4CAF50;
+        --likely-true: #8BC34A;
+        --mixed: #FFC107;
+        --likely-false: #FF9800;
+        --highly-likely-false: #F44336;
+        --unable-determine: #9E9E9E;
+    }
+    
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--text-color);
+        background-color: var(--background-color);
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        color: var(--primary-color);
+        margin-top: 1.5em;
+        margin-bottom: 0.5em;
+    }
+    
+    h1 {
+        font-size: 2.5em;
+        border-bottom: 2px solid var(--primary-color);
+        padding-bottom: 10px;
+    }
+    
+    h2 {
+        font-size: 2em;
+    }
+    
+    h3 {
+        font-size: 1.5em;
+    }
+    
+    a {
+        color: var(--primary-color);
+        text-decoration: underline;
+    }
+    
+    a:hover {
+        color: #0D47A1;
+    }
+    
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin: 20px 0;
+    }
+    
+    th, td {
+        text-align: left;
+        padding: 12px;
+        border: 1px solid var(--border-color);
+    }
+    
+    th {
+        background-color: var(--primary-color);
+        color: white;
+    }
+    
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+    
+    .summary-box {
+        background-color: #E3F2FD;
+        border-left: 5px solid var(--primary-color);
+        padding: 15px;
+        margin: 20px 0;
+        border-radius: 4px;
+    }
+    
+    .summary-box h3 {
+        margin-top: 0;
+        color: var(--primary-color);
+    }
+    
+    .summary-box ul {
+        margin: 10px 0;
+        padding-left: 20px;
+    }
+    
+    .assessment {
+        font-weight: bold;
+        padding: 3px 6px;
+        border-radius: 3px;
+    }
+    
+    .highly-likely-to-be-true {
+        background-color: var(--highly-likely-true);
+        color: white;
+    }
+    
+    .likely-to-be-true {
+        background-color: var(--likely-true);
+        color: white;
+    }
+    
+    .mixed-truthfulness {
+        background-color: var(--mixed);
+        color: black;
+    }
+    
+    .likely-to-be-false {
+        background-color: var(--likely-false);
+        color: white;
+    }
+    
+    .highly-likely-to-be-false {
+        background-color: var(--highly-likely-false);
+        color: white;
+    }
+    
+    .unable-to-determine {
+        background-color: var(--unable-determine);
+        color: white;
+    }
+    
+    .credibility {
+        font-weight: bold;
+        padding: 3px 6px;
+        border-radius: 3px;
+    }
+    
+    .high {
+        background-color: var(--high-credibility);
+        color: white;
+    }
+    
+    .medium {
+        background-color: var(--medium-credibility);
+        color: black;
+    }
+    
+    .low {
+        background-color: var(--low-credibility);
+        color: white;
+    }
+    
+    .mixed {
+        background-color: var(--mixed-credibility);
+        color: white;
+    }
+    
+    .evidence-section {
+        background-color: #F5F5F5;
+        padding: 15px;
+        margin: 20px 0;
+        border-radius: 4px;
+        border-left: 5px solid var(--secondary-color);
+    }
+    
+    .source-link {
+        display: inline-block;
+        margin-top: 5px;
+        font-style: italic;
+    }
+    
+    blockquote {
+        background-color: #F5F5F5;
+        border-left: 5px solid var(--secondary-color);
+        padding: 10px 20px;
+        margin: 15px 0;
+        font-style: italic;
+    }
+    
+    code {
+        background-color: #F5F5F5;
+        padding: 2px 5px;
+        border-radius: 3px;
+        font-family: 'Courier New', Courier, monospace;
+    }
+    
+    pre {
+        background-color: #F5F5F5;
+        padding: 15px;
+        border-radius: 4px;
+        overflow-x: auto;
+    }
+    
+    img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 20px 0;
+        border-radius: 4px;
+    }
+    
+    .video-container {
+        margin: 20px 0;
+        text-align: center;
+        background-color: #f8f9fa;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .video-container h2 {
+        margin-top: 0;
+        color: #333;
+        font-size: 1.8em;
+        margin-bottom: 15px;
+    }
+    
+    .video-container img {
+        margin: 0 auto;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        transition: transform 0.3s ease;
+    }
+    
+    .video-container img:hover {
+        transform: scale(1.02);
+    }
+    
+    .video-container a {
+        display: inline-block;
+        text-decoration: none;
+    }
+    
+    .video-embed {
+        margin: 20px 0;
+        text-align: center;
+    }
+    
+    .video-embed img {
+        margin: 0 auto;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        transition: transform 0.3s ease;
+    }
+    
+    .video-embed img:hover {
+        transform: scale(1.02);
+    }
+    
+    .video-embed a {
+        display: inline-block;
+        text-decoration: none;
+    }
+    
+    @media (max-width: 768px) {
+        body {
+            padding: 10px;
+        }
+        
+        h1 {
+            font-size: 2em;
+        }
+        
+        h2 {
+            font-size: 1.7em;
+        }
+        
+        h3 {
+            font-size: 1.3em;
+        }
+        
+        .video-container h2 {
+            font-size: 1.5em;
+        }
+    }
+    
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="summary-box">
+        <h3>Quick Summary</h3>
+        <ul>
+            <li><strong>Verdict:</strong> <span class="assessment assessmentlevel.likelytrue">AssessmentLevel.LIKELYTRUE</span></li>
+            <li><strong>Analysis Date:</strong> 2025-02-27</li>
+        </ul>
+    </div>
+        <div class="video-container">
+    <h2>Achieve Your Weight-Loss Goals With This Hack | Oz Weight Loss</h2>
+    <a href="https://youtu.be/sbChYUijRKE" target="_blank">
+        <img src="https://img.youtube.com/vi/sbChYUijRKE/0.jpg" alt="Achieve Your Weight-Loss Goals With This Hack | Oz Weight Loss" width="560">
+    </a>
+</div>
+        <h2>1. Overall Truthfulness Assessment: AssessmentLevel.LIKELYTRUE</h2>
+<p>Based on the available evidence, the core claims regarding the potential benefits of adding butter to coffee (specifically, improved focus and reduced hunger) are supported by some research and anecdotal evidence. However, the extent of these benefits and their impact on weight loss can vary. It's important to note that the video's title might be slightly misleading, as the 'hack' is not a guaranteed solution for everyone.</p>
+<h2>2. Summary of Key Findings</h2>
+<table>
+<thead>
+<tr>
+<th>Finding</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Cognitive Function</strong></td>
+<td>Several sources suggest that consuming butter coffee can lead to improved mental focus and clarity, potentially due to the combination of caffeine and fats.</td>
+</tr>
+<tr>
+<td><strong>Satiety and Hunger Control</strong></td>
+<td>The high fat content in butter coffee may contribute to increased feelings of fullness, potentially leading to reduced calorie intake throughout the day.</td>
+</tr>
+<tr>
+<td><strong>Individual Variability</strong></td>
+<td>The effects of butter coffee can vary significantly from person to person, depending on factors such as metabolism, diet, and activity level.</td>
+</tr>
+</tbody>
+</table>
+<h2>3. Claims Breakdown with Verification Results</h2>
+<table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Verification Result</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Burning fat for fuel, specifically through ketones, can improve brain function, energy, and mood.</td>
+<td>TRUE</td>
+<td>Research suggests that ketones, produced when the body burns fat for fuel, can have positive effects on brain function, energy levels, and mood, particularly in individuals with impaired glucose metabolism.</td>
+</tr>
+</tbody>
+</table>
+<h2>4. Evidence Summary</h2>
+<h3>Primary Sources</h3>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Type</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[Is Bulletproof Coffee Good for You? Benefits and Risks - Cleveland Clinic Health Essentials](<a href="https://health.clevelandclinic.org/bulletproof-coffee-benefits-and-risks" target="_blank" style="text-decoration: underline; color: var(--primary-color);">https://health.clevelandclinic.org/bulletproof-coffee-benefits-and-risks</a>)</td>
+<td>Website</td>
+<td>Proponents of bulletproof coffee claim that it offers benefits like: Sustained energy. Reduced hunger. Improved mental focus.</td>
+</tr>
+<tr>
+<td>[Bulletproof coffee: Fad or healthy? - Mayo Clinic Health System](<a href="https://www.mayoclinichealthsystem.org/hometown-health/speaking-of-health/bulletproof-coffee-fad-or-healthy" target="_blank" style="text-decoration: underline; color: var(--primary-color);">https://www.mayoclinichealthsystem.org/hometown-health/speaking-of-health/bulletproof-coffee-fad-or-healthy</a>)</td>
+<td>Website</td>
+<td>The idea behind bulletproof coffee is that the fat in the butter and MCT oil will help you feel full and satisfied, so you'll eat less throughout the day. Some people also report improved mental clarity and focus after drinking bulletproof coffee.</td>
+</tr>
+<tr>
+<td>[Bulletproof coffee: Benefits and risks - Medical News Today](<a href="https://www.medicalnewstoday.com/articles/324535" target="_blank" style="text-decoration: underline; color: var(--primary-color);">https://www.medicalnewstoday.com/articles/324535</a>)</td>
+<td>Website</td>
+<td>Some people believe that drinking bulletproof coffee can provide energy, enhance cognitive performance, and promote weight loss. However, there is little scientific evidence to support these claims.</td>
+</tr>
+<tr>
+<td>[Is Bulletproof Coffee Good or Bad? - WebMD](<a href="https://www.webmd.com/diet/bulletproof-coffee-good-bad" target="_blank" style="text-decoration: underline; color: var(--primary-color);">https://www.webmd.com/diet/bulletproof-coffee-good-bad</a>)</td>
+<td>Website</td>
+<td>Some people who drink bulletproof coffee say they feel more alert and energetic. The high fat content may also help you feel full longer, which could lead to eating less throughout the day.</td>
+</tr>
+<tr>
+<td>[About Dave Asprey - Official Website of Dave Asprey](<a href="https://daveasprey.com/about-dave/" target="_blank" style="text-decoration: underline; color: var(--primary-color);">https://daveasprey.com/about-dave/</a>)</td>
+<td>Website</td>
+<td>Dave Asprey is an entrepreneur, author, and biohacker who is best known as the creator of Bulletproof Coffee. He struggled with his own health and weight for many years, despite following conventional advice on diet and exercise.</td>
+</tr>
+<tr>
+<td>[Ketogenic diet: Is the ultimate low-carb diet good for you? - Harvard Health](<a href="https://www.health.harvard.edu/blog/ketogenic-diet-is-the-ultimate-low-carb-diet-good-for-you-2017072711985" target="_blank" style="text-decoration: underline; color: var(--primary-color);">https://www.health.harvard.edu/blog/ketogenic-diet-is-the-ultimate-low-carb-diet-good-for-you-2017072711985</a>)</td>
+<td>Website</td>
+<td>When you deprive your body of carbohydrates (fewer than 50 grams per day), glucose (blood sugar) levels in your blood significantly decrease. Your body then needs to turn to another source of fuel: fat.</td>
+</tr>
+<tr>
+<td>[The Effects of Ketone Bodies on Brain Metabolism and Function](<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5670148/" target="_blank" style="text-decoration: underline; color: var(--primary-color);">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5670148/</a>)</td>
+<td>Research Article</td>
+<td>Ketone bodies are produced in the liver from fatty acids during periods of carbohydrate restriction... They serve as an alternative fuel source for the brain when glucose availability is limited.</td>
+</tr>
+</tbody>
+</table>
+<h3>Secondary Sources</h3>
+<ul>
+<li>Amazon.com (for Dave Asprey's book 'Head Strong')</li>
+<li>YouTube (for Dave Asprey's interview on Impact Theory)</li>
+</ul>
+<h2>5. Updated CRAAP Analysis Incorporating New Evidence</h2>
+<table>
+<thead>
+<tr>
+<th>Criteria</th>
+<th>Assessment</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Currency</strong></td>
+<td>CredibilityLevel.HIGH</td>
+<td>The information is generally current, with sources updated regularly. However, the video itself may not reflect the most recent research.</td>
+</tr>
+<tr>
+<td><strong>Relevance</strong></td>
+<td>CredibilityLevel.HIGH</td>
+<td>The information directly addresses the claims made in the video regarding weight loss and cognitive function.</td>
+</tr>
+<tr>
+<td><strong>Authority</strong></td>
+<td>CredibilityLevel.MEDIUM</td>
+<td>Sources include reputable medical websites (Mayo Clinic, Cleveland Clinic, Harvard Health) and research articles. However, some claims rely on anecdotal evidence and the authority of Dave Asprey, who has a vested interest in promoting Bulletproof Coffee.</td>
+</tr>
+<tr>
+<td><strong>Accuracy</strong></td>
+<td>CredibilityLevel.MEDIUM</td>
+<td>The information is generally accurate, but some claims, particularly those related to weight loss, are not universally supported by scientific evidence and may be exaggerated.</td>
+</tr>
+<tr>
+<td><strong>Purpose</strong></td>
+<td>CredibilityLevel.MIXED</td>
+<td>While some sources aim to provide objective information, others may have a promotional or commercial purpose, particularly those associated with Dave Asprey and Bulletproof Coffee.</td>
+</tr>
+</tbody>
+</table>
+<h2>6. Recommendations Based on Findings</h2>
+<ol>
+<li>Consult with a healthcare professional or registered dietitian before making significant dietary changes, such as incorporating butter coffee into your routine.</li>
+<li>Be cautious of exaggerated claims regarding weight loss and cognitive enhancement. Individual results may vary.</li>
+<li>Consider the potential risks and benefits of butter coffee in the context of your overall diet and health status.</li>
+<li>Look for independent, peer-reviewed research to support any health claims made in the video.</li>
+</ol>
+<h2>7. Evidence Details with Source Credibility Assessment</h2>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Credibility Assessment</th>
+<th>Justification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cleveland Clinic Health Essentials</td>
+<td>CredibilityLevel.HIGH</td>
+<td>The Cleveland Clinic is a well-respected medical institution known for providing reliable health information.</td>
+</tr>
+<tr>
+<td>Mayo Clinic Health System</td>
+<td>CredibilityLevel.HIGH</td>
+<td>The Mayo Clinic is another highly reputable medical institution with a strong track record of providing accurate and evidence-based health information.</td>
+</tr>
+<tr>
+<td>Medical News Today</td>
+<td>CredibilityLevel.MEDIUM</td>
+<td>Medical News Today is a generally reliable source of health information, but it's important to critically evaluate the evidence presented.</td>
+</tr>
+<tr>
+<td>WebMD</td>
+<td>CredibilityLevel.MEDIUM</td>
+<td>WebMD is a widely used source of health information, but it's important to be aware of potential biases and to consult with a healthcare professional for personalized advice.</td>
+</tr>
+<tr>
+<td>Dave Asprey Official Website</td>
+<td>CredibilityLevel.LOW</td>
+<td>While Dave Asprey is a knowledgeable figure in the biohacking community, his website is primarily a promotional platform for his products and services, which may introduce bias.</td>
+</tr>
+<tr>
+<td>Harvard Health</td>
+<td>CredibilityLevel.HIGH</td>
+<td>Harvard Health Publishing is a trusted source of health information from Harvard Medical School.</td>
+</tr>
+<tr>
+<td>National Center for Biotechnology Information (NCBI)</td>
+<td>CredibilityLevel.HIGH</td>
+<td>NCBI is a reputable database of biomedical literature, providing access to peer-reviewed research articles.</td>
+</tr>
+</tbody>
+</table>
+
+    </div>
+</body>
+</html>

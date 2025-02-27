@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        :root {
+            --primary-color: #2196F3;
+            --primary-dark: #1976D2;
+            --secondary-color: #FF9800;
+            --background-color: #f5f5f5;
+            --text-color: #333;
+            --border-color: #ddd;
+            --box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            
+            /* Assessment colors */
+            --false-bg: #ffebee;
+            --false-color: #c62828;
+            --unable-bg: #fff3e0;
+            --unable-color: #ef6c00;
+            --true-bg: #e8f5e9;
+            --true-color: #2e7d32;
+            --mixed-bg: #f3e5f5;
+            --mixed-color: #7b1fa2;
+            
+            /* Add source credibility colors */
+            --high-credibility: #43a047;
+            --medium-credibility: #fb8c00;
+            --low-credibility: #e53935;
+            --single-source: #7b1fa2;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: white;
+            box-shadow: var(--box-shadow);
+            border-radius: 8px;
+            color: var(--text-color);
+        }
+
+        /* Ensure text color is properly set for all elements */
+        .container * {
+            color: var(--text-color);
+        }
+
+        .container h1, .container h2, .container h3, .container h4, .container h5, .container h6 {
+            color: var(--primary-dark);
+        }
+
+        /* Rest of your existing CSS */
+        
+    :root {
+        --high-credibility: #4CAF50;
+        --medium-credibility: #FFC107;
+        --low-credibility: #F44336;
+        --mixed-credibility: #9C27B0;
+        --primary-color: #2196F3;
+        --secondary-color: #607D8B;
+        --background-color: #FFFFFF;
+        --text-color: #333333;
+        --border-color: #DDDDDD;
+        --highly-likely-true: #4CAF50;
+        --likely-true: #8BC34A;
+        --mixed: #FFC107;
+        --likely-false: #FF9800;
+        --highly-likely-false: #F44336;
+        --unable-determine: #9E9E9E;
+    }
+    
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--text-color);
+        background-color: var(--background-color);
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        color: var(--primary-color);
+        margin-top: 1.5em;
+        margin-bottom: 0.5em;
+    }
+    
+    h1 {
+        font-size: 2.5em;
+        border-bottom: 2px solid var(--primary-color);
+        padding-bottom: 10px;
+    }
+    
+    h2 {
+        font-size: 2em;
+    }
+    
+    h3 {
+        font-size: 1.5em;
+    }
+    
+    a {
+        color: var(--primary-color);
+        text-decoration: underline;
+    }
+    
+    a:hover {
+        color: #0D47A1;
+    }
+    
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin: 20px 0;
+    }
+    
+    th, td {
+        text-align: left;
+        padding: 12px;
+        border: 1px solid var(--border-color);
+    }
+    
+    th {
+        background-color: var(--primary-color);
+        color: white;
+    }
+    
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+    
+    .summary-box {
+        background-color: #E3F2FD;
+        border-left: 5px solid var(--primary-color);
+        padding: 15px;
+        margin: 20px 0;
+        border-radius: 4px;
+    }
+    
+    .summary-box h3 {
+        margin-top: 0;
+        color: var(--primary-color);
+    }
+    
+    .summary-box ul {
+        margin: 10px 0;
+        padding-left: 20px;
+    }
+    
+    .assessment {
+        font-weight: bold;
+        padding: 3px 6px;
+        border-radius: 3px;
+    }
+    
+    .highly-likely-to-be-true {
+        background-color: var(--highly-likely-true);
+        color: white;
+    }
+    
+    .likely-to-be-true {
+        background-color: var(--likely-true);
+        color: white;
+    }
+    
+    .mixed-truthfulness {
+        background-color: var(--mixed);
+        color: black;
+    }
+    
+    .likely-to-be-false {
+        background-color: var(--likely-false);
+        color: white;
+    }
+    
+    .highly-likely-to-be-false {
+        background-color: var(--highly-likely-false);
+        color: white;
+    }
+    
+    .unable-to-determine {
+        background-color: var(--unable-determine);
+        color: white;
+    }
+    
+    .credibility {
+        font-weight: bold;
+        padding: 3px 6px;
+        border-radius: 3px;
+    }
+    
+    .high {
+        background-color: var(--high-credibility);
+        color: white;
+    }
+    
+    .medium {
+        background-color: var(--medium-credibility);
+        color: black;
+    }
+    
+    .low {
+        background-color: var(--low-credibility);
+        color: white;
+    }
+    
+    .mixed {
+        background-color: var(--mixed-credibility);
+        color: white;
+    }
+    
+    .evidence-section {
+        background-color: #F5F5F5;
+        padding: 15px;
+        margin: 20px 0;
+        border-radius: 4px;
+        border-left: 5px solid var(--secondary-color);
+    }
+    
+    .source-link {
+        display: inline-block;
+        margin-top: 5px;
+        font-style: italic;
+    }
+    
+    blockquote {
+        background-color: #F5F5F5;
+        border-left: 5px solid var(--secondary-color);
+        padding: 10px 20px;
+        margin: 15px 0;
+        font-style: italic;
+    }
+    
+    code {
+        background-color: #F5F5F5;
+        padding: 2px 5px;
+        border-radius: 3px;
+        font-family: 'Courier New', Courier, monospace;
+    }
+    
+    pre {
+        background-color: #F5F5F5;
+        padding: 15px;
+        border-radius: 4px;
+        overflow-x: auto;
+    }
+    
+    img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 20px 0;
+        border-radius: 4px;
+    }
+    
+    .video-container {
+        margin: 20px 0;
+        text-align: center;
+        background-color: #f8f9fa;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .video-container h2 {
+        margin-top: 0;
+        color: #333;
+        font-size: 1.8em;
+        margin-bottom: 15px;
+    }
+    
+    .video-container img {
+        margin: 0 auto;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        transition: transform 0.3s ease;
+    }
+    
+    .video-container img:hover {
+        transform: scale(1.02);
+    }
+    
+    .video-container a {
+        display: inline-block;
+        text-decoration: none;
+    }
+    
+    .video-embed {
+        margin: 20px 0;
+        text-align: center;
+    }
+    
+    .video-embed img {
+        margin: 0 auto;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        transition: transform 0.3s ease;
+    }
+    
+    .video-embed img:hover {
+        transform: scale(1.02);
+    }
+    
+    .video-embed a {
+        display: inline-block;
+        text-decoration: none;
+    }
+    
+    @media (max-width: 768px) {
+        body {
+            padding: 10px;
+        }
+        
+        h1 {
+            font-size: 2em;
+        }
+        
+        h2 {
+            font-size: 1.7em;
+        }
+        
+        h3 {
+            font-size: 1.3em;
+        }
+        
+        .video-container h2 {
+            font-size: 1.5em;
+        }
+    }
+    
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="summary-box">
+        <h3>Quick Summary</h3>
+        <ul>
+            <li><strong>Verdict:</strong> <span class="assessment assessmentlevel.likelytrue">AssessmentLevel.LIKELYTRUE</span></li>
+            <li><strong>Analysis Date:</strong> 2025-02-27</li>
+        </ul>
+    </div>
+        <div class="video-container">
+    <h2>Ivermectin and Colon Cancer</h2>
+    <a href="https://youtu.be/_15tjRXeWNk" target="_blank">
+        <img src="https://img.youtube.com/vi/_15tjRXeWNk/0.jpg" alt="Ivermectin and Colon Cancer" width="560">
+    </a>
+</div>
+        <h2>1. Overall Truthfulness Assessment: AssessmentLevel.LIKELYTRUE</h2>
+<p>Based on the available evidence, the claims made in the video regarding Ivermectin's potential anti-cancer properties, particularly in relation to colon cancer, are likely to be true. The video accurately reflects the current state of research, which includes in vitro and in vivo studies suggesting that Ivermectin can inhibit cancer cell growth, induce apoptosis, and affect cell morphology. However, it is crucial to emphasize that these findings are preliminary and further clinical trials are needed to confirm these effects in humans. The absence of debunking videos also contributes to this assessment, although it does not guarantee complete accuracy.</p>
+<h2>2. Summary of Key Findings</h2>
+<table>
+<thead>
+<tr>
+<th>Finding</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Scientific Evidence</strong></td>
+<td>Multiple studies, including research from Henan University, support the claim that Ivermectin exhibits anti-cancer properties, specifically inhibiting the proliferation, stemness, and metastasis of colorectal cancer cells. These studies often highlight mechanisms such as cell cycle arrest, apoptosis induction, and modulation of signaling pathways like Wnt/β-catenin and Hippo.</td>
+</tr>
+<tr>
+<td><strong>Mechanism of Action</strong></td>
+<td>The video's claims regarding Ivermectin's mechanism of action are supported by research indicating that it can induce apoptosis (programmed cell death), alter cell morphology, and interfere with cancer cell proliferation by arresting the tumor cell cycle. These effects are often linked to the modulation of specific signaling pathways within cancer cells.</td>
+</tr>
+<tr>
+<td><strong>Historical Context</strong></td>
+<td>The video's historical claims about Ivermectin's discovery and Nobel Prize are accurate. Ivermectin was indeed derived from a bacteria discovered in Japan and the scientists involved in its discovery were awarded the Nobel Prize in 2015 for their work on parasitic diseases.</td>
+</tr>
+</tbody>
+</table>
+<h2>3. Claims Breakdown with Verification Results</h2>
+<table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Verification Result</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ivermectin induced apoptosis.</td>
+<td>TRUE</td>
+<td>Multiple studies confirm that Ivermectin can induce apoptosis (programmed cell death) in cancer cells through various mechanisms, including the activation of caspases and disruption of mitochondrial function.</td>
+</tr>
+</tbody>
+</table>
+<h2>4. Evidence Summary</h2>
+<h3>Primary Sources</h3>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Type</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[Satoshi Ōmura</td>
+<td>Science History Institute](<a href="https://www.sciencehistory.org/historical-profile/satoshi-omura" target="_blank" style="text-decoration: underline; color: var(--primary-color);">https://www.sciencehistory.org/historical-profile/satoshi-omura</a>)</td>
+<td>Website</td>
+</tr>
+<tr>
+<td>[Satoshi Ōmura – Facts – NobelPrize.org](<a href="https://www.nobelprize.org/prizes/medicine/2015/omura/facts/" target="_blank" style="text-decoration: underline; color: var(--primary-color);">https://www.nobelprize.org/prizes/medicine/2015/omura/facts/</a>)</td>
+<td>Website</td>
+<td>Satoshi Ōmura discovered Streptomyces avermitilis, a new species of Streptomyces bacteria, from a soil sample in Japan. From this, avermectin was isolated. Avermectin was modified to Ivermectin.</td>
+</tr>
+<tr>
+<td>[Ivermectin</td>
+<td>Parasites - CDC](<a href="https://www.cdc.gov/parasites/ivermectin/index.html" target="_blank" style="text-decoration: underline; color: var(--primary-color);">https://www.cdc.gov/parasites/ivermectin/index.html</a>)</td>
+<td>Website</td>
+</tr>
+<tr>
+<td>[Ivermectin: highly effective and safe antiparasitic agent](<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3043740/" target="_blank" style="text-decoration: underline; color: var(--primary-color);">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3043740/</a>)</td>
+<td>Journal Article</td>
+<td>Ivermectin is a Food and Drug Administration (FDA)-approved broad spectrum antiparasitic agent that has been used in humans and animals since the 1980s. It is used to treat several neglected tropical diseases, including onchocerciasis, helminthiases, and scabies. Ivermectin is also being evaluated for its potential to eradicate malaria. For these indications, ivermectin has been widely used and is generally well-tolerated.</td>
+</tr>
+<tr>
+<td>[Treating Parasites in Your Pet</td>
+<td>FDA](<a href="https://www.fda.gov/consumers/animal-veterinary/treating-parasites-your-pet" target="_blank" style="text-decoration: underline; color: var(--primary-color);">https://www.fda.gov/consumers/animal-veterinary/treating-parasites-your-pet</a>)</td>
+<td>Website</td>
+</tr>
+<tr>
+<td>[Colorectal cancer statistics](<a href="https://www.wcrf.org/cancer-trends/colorectal-cancer-statistics/" target="_blank" style="text-decoration: underline; color: var(--primary-color);">https://www.wcrf.org/cancer-trends/colorectal-cancer-statistics/</a>)</td>
+<td>Website</td>
+<td>In 2020, there were more than 1.93 million new cases of colorectal cancer, making it the third most commonly diagnosed cancer worldwide.</td>
+</tr>
+<tr>
+<td>[Key Statistics for Colorectal Cancer](<a href="https://www.cancer.org/cancer/colon-rectal-cancer/about/key-statistics.html" target="_blank" style="text-decoration: underline; color: var(--primary-color);">https://www.cancer.org/cancer/colon-rectal-cancer/about/key-statistics.html</a>)</td>
+<td>Website</td>
+<td>Colorectal cancer is the third most common cancer diagnosed in both men and women in the United States.</td>
+</tr>
+<tr>
+<td>[Ivermectin inhibits stemness and metastasis of colorectal cancer via Hippo signaling pathway - PubMed](<a href="https://pubmed.ncbi.nlm.nih.gov/37095640/" target="_blank" style="text-decoration: underline; color: var(--primary-color);">https://pubmed.ncbi.nlm.nih.gov/37095640/</a>)</td>
+<td>Journal Article</td>
+<td>Ivermectin inhibits stemness and metastasis of colorectal cancer via Hippo signaling pathway. ... Conclusions: Ivermectin inhibits the proliferation, stemness, and metastasis of CRC by activating the Hippo signaling pathway. Our findings provide new insights into the application of ivermectin in CRC treatment.</td>
+</tr>
+<tr>
+<td>[Ivermectin inhibits growth and induces apoptosis of colon cancer cells through Wnt/β-catenin signaling pathway - PubMed](<a href="https://pubmed.ncbi.nlm.nih.gov/33530097/" target="_blank" style="text-decoration: underline; color: var(--primary-color);">https://pubmed.ncbi.nlm.nih.gov/33530097/</a>)</td>
+<td>Journal Article</td>
+<td>In conclusion, IVM inhibits the growth of colon cancer cells and induces apoptosis by regulating the Wnt/β-catenin signaling pathway, suggesting that IVM is a potential drug for the treatment of colon cancer.</td>
+</tr>
+<tr>
+<td>[Ivermectin as a Repurposed Anticancer Drug: Discovery and Clinical Development - PMC - National Center for Biotechnology Information](<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8395215/" target="_blank" style="text-decoration: underline; color: var(--primary-color);">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8395215/</a>)</td>
+<td>Journal Article</td>
+<td>Ivermectin (IVM), an FDA-approved broad-spectrum anti-parasitic agent, has been shown to possess anticancer activity in various types of cancer, including leukemia, breast cancer, ovarian cancer, melanoma, and glioblastoma. IVM exhibits its anticancer activity by targeting multiple signaling pathways, including the Wnt/β-catenin, PI3K/Akt/mTOR, and Hippo pathways. In addition, IVM can induce cell cycle arrest and apoptosis in cancer cells. This review summarizes the discovery and clinical development of IVM as a repurposed anticancer drug.</td>
+</tr>
+<tr>
+<td>[Ivermectin suppresses proliferation and migration of human colon cancer cells by inhibiting the Wnt/β-catenin signaling pathway - International Journal of Oncology](<a href="https://www.spandidos-publications.com/ijo/58/5/1076/abstract" target="_blank" style="text-decoration: underline; color: var(--primary-color);">https://www.spandidos-publications.com/ijo/58/5/1076/abstract</a>)</td>
+<td>Journal Article</td>
+<td>In conclusion, the results of the present study demonstrated that ivermectin inhibited the proliferation and migration of colon cancer cells by inhibiting the Wnt/β-catenin signaling pathway. Ivermectin may be a potential therapeutic agent for the treatment of colon cancer.</td>
+</tr>
+<tr>
+<td>[The Role of Ivermectin in Cancer Treatment: A Systematic Review - Cureus](<a href="https://www.cureus.com/articles/158914-the-role-of-ivermectin-in-cancer-treatment-a-systematic-review#!/" target="_blank" style="text-decoration: underline; color: var(--primary-color);">https://www.cureus.com/articles/158914-the-role-of-ivermectin-in-cancer-treatment-a-systematic-review#!/</a>)</td>
+<td>Journal Article</td>
+<td>It has been demonstrated to have anticancer properties in various types of cancer, including leukemia, breast cancer, ovarian cancer, melanoma, glioblastoma, gastric cancer, lung cancer, and colon cancer. IVM has been shown to inhibit cancer cell growth and proliferation by targeting multiple signaling pathways, including the Wnt/β-catenin, PI3K/Akt/mTOR, and Hippo pathways. In addition, IVM can induce cell cycle arrest and apoptosis in cancer cells.</td>
+</tr>
+<tr>
+<td>[Ivermectin Induces Cytotoxic Autophagy by Blocking the AKT/mTOR Pathway in Colon Cancer Cells - PMC - National Center for Biotechnology Information](<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7827692/" target="_blank" style="text-decoration: underline; color: var(--primary-color);">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7827692/</a>)</td>
+<td>Journal Article</td>
+<td>Our results showed that Ivermectin (IVM) significantly inhibited cell proliferation, altered cell morphology, and induced autophagy in colon cancer cells. IVM treatment resulted in a significant decrease in the levels of p-AKT and p-mTOR, indicating that IVM-induced autophagy is mediated by the AKT/mTOR signaling pathway. Furthermore, we showed that IVM increased the levels of autophagy markers such as LC3II and Beclin-1. These findings suggest that IVM may be a potential therapeutic agent for colon cancer.</td>
+</tr>
+<tr>
+<td>[Ivermectin: a systematic review and bioinformatic analysis of its mechanisms in cancer therapy - PMC - National Center for Biotechnology Information](<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9919209/" target="_blank" style="text-decoration: underline; color: var(--primary-color);">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9919209/</a>)</td>
+<td>Journal Article</td>
+<td>Ivermectin (IVM) is an anti-parasitic drug that has been shown to have anticancer activity in a variety of cancers. IVM can induce cell cycle arrest, apoptosis, autophagy, and inhibition of metastasis. It modulates multiple signaling pathways, including the Wnt, Hedgehog, and Hippo pathways. In this review, we provide a systematic overview of the mechanisms by which IVM exerts its anticancer effects.</td>
+</tr>
+<tr>
+<td>[Ivermectin: Potential Anticancer Activity and Clinical Applications: A Narrative Review](<a href="https://www.cureus.com/articles/157349-ivermectin-potential-anticancer-activity-and-clinical-applications-a-narrative-review" target="_blank" style="text-decoration: underline; color: var(--primary-color);">https://www.cureus.com/articles/157349-ivermectin-potential-anticancer-activity-and-clinical-applications-a-narrative-review</a>)</td>
+<td>Journal Article</td>
+<td>Ivermectin has demonstrated anticancer activity in various malignancies, including leukemia, breast cancer, ovarian cancer, melanoma, and colon cancer. It exerts its effects through multiple mechanisms, including the induction of apoptosis, inhibition of cell proliferation, suppression of angiogenesis, and modulation of the immune system. Studies have shown that ivermectin can induce apoptosis (programmed cell death) in cancer cells by activating caspases and disrupting mitochondrial function. It can also inhibit cell proliferation by arresting the cell cycle and preventing DNA replication. Additionally, ivermectin has been found to suppress angiogenesis, the formation of new blood vessels that tumors need to grow and spread. Furthermore, it can modulate the immune system by enhancing the activity of immune cells, such as natural killer cells, and by suppressing the production of immunosuppressive factors.</td>
+</tr>
+<tr>
+<td>[Ivermectin repurposing in oncology: dispelling the myths](<a href="https://www.eurekaselect.com/article/130691" target="_blank" style="text-decoration: underline; color: var(--primary-color);">https://www.eurekaselect.com/article/130691</a>)</td>
+<td>Journal Article</td>
+<td>Several in vitro and in vivo studies have demonstrated that IVM has anticancer properties in several cancer types, including breast cancer, colon cancer, leukemia, glioblastoma, and ovarian cancer. IVM exerts its anticancer effects through various mechanisms, including: Induction of apoptosis: IVM can trigger programmed cell death in cancer cells by activating caspases and disrupting mitochondrial function.</td>
+</tr>
+<tr>
+<td>[Ivermectin: An Award-Winning Drug with Expected or Proven Biological Activities](<a href="https://www.mdpi.com/1420-3049/28/1/404" target="_blank" style="text-decoration: underline; color: var(--primary-color);">https://www.mdpi.com/1420-3049/28/1/404</a>)</td>
+<td>Journal Article</td>
+<td>Ivermectin (IVM) is a Food and Drug Administration (FDA)-approved broad-spectrum anti-parasitic agent that is used to treat several neglected tropical diseases. IVM has been revealed to possess a broad range of biological activities, including anti-viral, anti-bacterial, and anti-cancer effects. IVM exerts its anti-cancer effects through various mechanisms, including the induction of apoptosis, inhibition of cell proliferation, suppression of angiogenesis, and modulation of the immune system. In this review, we will discuss the current knowledge on the biological activities of IVM and its potential therapeutic applications.</td>
+</tr>
+</tbody>
+</table>
+<h3>Secondary Sources</h3>
+<ul>
+<li>Google Scholar for related research papers</li>
+<li>PubMed for scientific publications</li>
+<li>Cancer Research UK for information on colon cancer</li>
+</ul>
+<h2>5. Updated CRAAP Analysis Incorporating New Evidence</h2>
+<table>
+<thead>
+<tr>
+<th>Criteria</th>
+<th>Assessment</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Currency</strong></td>
+<td>CredibilityLevel.MEDIUM</td>
+<td>The information regarding the basic facts about Ivermectin and colon cancer is generally current. However, the research on Ivermectin's anti-cancer properties is ongoing, and the latest studies should be consulted for the most up-to-date information.</td>
+</tr>
+<tr>
+<td><strong>Relevance</strong></td>
+<td>CredibilityLevel.HIGH</td>
+<td>The information is highly relevant to the topic of Ivermectin and its potential application in treating colon cancer. The sources directly address the claims made in the video.</td>
+</tr>
+<tr>
+<td><strong>Authority</strong></td>
+<td>CredibilityLevel.HIGH</td>
+<td>The sources used include reputable organizations such as the CDC, FDA, Nobel Prize website, and peer-reviewed scientific journals. These sources are considered authoritative in their respective fields.</td>
+</tr>
+<tr>
+<td><strong>Accuracy</strong></td>
+<td>CredibilityLevel.MEDIUM</td>
+<td>The information presented is generally accurate based on the available evidence. However, it is important to note that the research on Ivermectin's anti-cancer properties is still preliminary, and further studies are needed to confirm its efficacy and safety in humans.</td>
+</tr>
+<tr>
+<td><strong>Purpose</strong></td>
+<td>CredibilityLevel.MIXED</td>
+<td>The purpose of the sources varies. Some sources, such as the CDC and FDA, aim to provide factual information about Ivermectin. Other sources, such as scientific journals, aim to present research findings. It's important to consider the potential biases of each source when evaluating the information.</td>
+</tr>
+</tbody>
+</table>
+<h2>6. Recommendations Based on Findings</h2>
+<ol>
+<li>Emphasize that Ivermectin is not a proven treatment for colon cancer and should not be used as a substitute for standard medical care.</li>
+<li>Encourage viewers to consult with healthcare professionals for personalized medical advice.</li>
+<li>Provide a balanced perspective by acknowledging the limitations of current research and the need for further clinical trials.</li>
+<li>Include a disclaimer stating that the information presented is for educational purposes only and should not be interpreted as medical advice.</li>
+</ol>
+<h2>7. Evidence Details with Source Credibility Assessment</h2>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Credibility Assessment</th>
+<th>Justification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nobel Prize Website</td>
+<td>CredibilityLevel.HIGH</td>
+<td>The official website of the Nobel Prize is a highly credible source for information about Nobel laureates and their discoveries.</td>
+</tr>
+<tr>
+<td>Centers for Disease Control and Prevention (CDC)</td>
+<td>CredibilityLevel.HIGH</td>
+<td>The CDC is a reputable government agency that provides reliable information about public health and disease prevention.</td>
+</tr>
+<tr>
+<td>Food and Drug Administration (FDA)</td>
+<td>CredibilityLevel.HIGH</td>
+<td>The FDA is a reputable government agency responsible for regulating and supervising the safety of food, drugs, and other products.</td>
+</tr>
+<tr>
+<td>Peer-Reviewed Scientific Journals (e.g., PubMed, Cell Communication and Signaling)</td>
+<td>CredibilityLevel.HIGH</td>
+<td>Peer-reviewed scientific journals are considered highly credible sources of information because they undergo a rigorous review process by experts in the field.</td>
+</tr>
+</tbody>
+</table>
+
+    </div>
+</body>
+</html>
