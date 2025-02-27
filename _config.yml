@@ -1,9 +1,13 @@
+theme: jekyll-theme-slate
+index: index.html
+markdown: kramdown
 plugins:
   - jekyll-relative-links
 relative_links:
   enabled: true
   collections: true
 include:
+  # - "*.md"
   - README.md
   - LICENSE.md
   - CONTRIBUTING.md
